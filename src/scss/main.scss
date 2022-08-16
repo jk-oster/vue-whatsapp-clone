@@ -1,0 +1,23 @@
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css';
+@import "scrollbar.scss";
+
+:root {
+  --whatsapp-green: #009788;
+  --message-green: #dcf8c6;
+  --lightgray: #dbdbdb;
+  --banner-gray: #eeeeee;
+  --list-active-gray: #e9ebea;
+  --beige: #e5dcd5;
+  --border-gray: #263238;
+}
+
+body {
+  background-color: var(--lightgray);
+  font-size: 14px;
+}
+
+
+main {
+  height: calc( 100vh - 30px);
+  margin: auto;
+}
