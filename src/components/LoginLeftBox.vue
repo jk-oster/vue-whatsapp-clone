@@ -3,8 +3,7 @@
       <h1>WhatsApp Clone</h1>
       <p>This is a WhatsApp clone built with VUE and Firebase by <a href="https://jkoster.com">Jakob Osterberger</a>
         2022</p>
-      <span><a href="#" @click="googleLogin"><i class="fa fa-google"
-                                                aria-hidden="true"></i> Login with Google</a></span>
+      <span><a href="#" @click="googleLogin"><img src="../assets/google-svgrepo-com.svg" class="icon" alt=""> Login with Google</a></span>
     </div>
 </template>
 
@@ -22,7 +21,7 @@ export default {
       signInWithPopup(auth, provider)
           .then(() => {
             console.log("User signed in successfully");
-            router.push('/about').then(() => {
+            router.push('/chats').then(() => {
               console.log('Welcome')
             })
           })
@@ -43,6 +42,10 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  width: 20px;
+  height: 20px;
+}
 
 body {
   background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);

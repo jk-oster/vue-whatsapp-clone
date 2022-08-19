@@ -7,19 +7,54 @@
     </svg-->
     <!--input type="text" id="inputMsg" class="form-control form-control-sm w-100"
            placeholder="Schreibe eine Nachricht"-->
-    <span contenteditable="true" class="form-control form-control-sm w-100 text-input" scrollable="true"></span>
+    <span contenteditable="true" class="form-control form-control-sm w-100 text-input" scrollable="true"
+    @keyup.enter="sendMessage" @input="onInput">{{ message }}</span>
 
-    <img class="my-auto mx-2 icon" src="../assets/send-svgrepo-com.svg" alt="Send message"/>
+    <button class="my-auto mx-2 btn-icon" @click="sendMessage">
+      <img class="icon" src="../assets/send-svgrepo-com.svg" alt="Send message"/>
+    </button>
   </div>
 </template>
 
 <script>
+import {store} from "../store";
+
 export default {
-  name: "ChatFooter"
+  name: "ChatFooter",
+  data() {
+    return {
+      message: "Write to chat"
+    }
+  },
+  methods: {
+    onInput(e) {
+      this.message = e.target.innerText
+    },
+    sendMessage() {
+      if(this.message !== "") {
+        const newMessage = {
+          id: '',
+          userId: store.currentUser.id,
+          text: this.message,
+          time: Date.now().toString()
+        }
+        store.currentChat.messages = [...store.currentChat.messages, newMessage]
+        this.message = "";
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
+.btn-icon {
+  all: unset;
+  border: none;
+}
+.btn-icon:focus {
+  outline: 5px auto Highlight;
+  outline: 5px auto -webkit-focus-ring-color;
+}
 .icon {
   width: 24px;
   height: 24px;

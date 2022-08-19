@@ -49,7 +49,7 @@ export default {
       signInWithEmailAndPassword(auth, this.email, this.password)
           .then(() => {
             console.log("User signed in successfully");
-            router.push('/about').then(() => {
+            router.push('/chats').then(() => {
               console.log('Welcome')
             })
           })

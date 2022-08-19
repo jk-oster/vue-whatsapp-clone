@@ -1,23 +1,27 @@
 <template>
-  <div class="chatroom"  scollable="true">
-
-    <MessageItem v-for="message in store.currentChat.messages" :key="message.id" :message="message"/>
-
+  <div v-bind:id="message.id" class="message" :class="message.userId === userId ? 'out' : 'in'">
+    <div>
+      <div>
+        <b>{{ userName }}</b><br>{{ message.text }}
+      </div>
+      <div class="time">
+        {{ message.time}}
+      </div>
+    </div>
   </div>
-
 </template>
 
 <script>
-import {store } from "../store";
-import MessageItem from "@/components/MessageItem";
+import {store} from "../store.js"
 export default {
-  name: "ChatRoom",
-  components: {MessageItem},
+  name: "MessageItem",
   data() {
     return {
-      store
+      userId: store.currentUser.id,
+      userName: store.currentChat.users.filter(user => user.id === this.message.userId)[0].name,
     }
-  }
+  },
+  props: ['message'],
 }
 </script>
 
