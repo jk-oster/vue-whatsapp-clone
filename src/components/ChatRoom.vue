@@ -1,5 +1,5 @@
 <template>
-  <div class="chatroom"  scollable="true">
+  <div ref="chatroom" class="chatroom"  scollable="true">
 
     <MessageItem v-for="message in store.currentChat.messages" :key="message.id" :message="message"/>
 
@@ -16,6 +16,18 @@ export default {
   data() {
     return {
       store
+    }
+  },
+  mounted() {
+    this.scrollToBottom();
+  },
+  updated() {
+    this.scrollToBottom();
+  },
+  methods: {
+    scrollToBottom() {
+      const chatroom = this.$refs.chatroom;
+      chatroom.scrollTop = chatroom.scrollHeight;
     }
   }
 }

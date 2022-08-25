@@ -1,25 +1,26 @@
 /* eslint-disable */
 <template>
 
-  <div class="box-form">
-    <div class="left">
-      <LoginLeftBox/>
-    </div>
+  <PageComp>
 
-    <div class="right">
+    <template #rightbox>
       <CreateAccountBox/>
-    </div>
-  </div>
+      <LoginLeftBox/>
+    </template>
+
+  </PageComp>
+
 
 </template>
 
 <script>
 import LoginLeftBox from "@/components/LoginLeftBox";
 import CreateAccountBox from "@/components/CreateAccountBox";
+import PageComp from "@/components/PageComp";
 
 export default {
   name: "NewAccountView",
-  components: {CreateAccountBox, LoginLeftBox},
+  components: {CreateAccountBox, LoginLeftBox, PageComp},
 }
 </script>
 

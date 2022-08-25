@@ -1,0 +1,66 @@
+.message {
+  display: flex;
+  max-width: 80%;
+  position: relative;
+
+  & > div {
+    background-color: $color-msg-white;
+    border-radius: .5em;
+    margin: 1em 2em;
+    padding: 1em;
+    text-align: left;
+  }
+
+  & > div::before {
+    content: '';
+    border-style: solid;
+    border-width: 18px 18px 0 0;
+    border-color: $color-msg-white transparent transparent transparent;
+    position: absolute;
+    right: 22px;
+    top: 16px;
+  }
+
+  &.out > div::before {
+    border-color: $color-msg-white transparent transparent transparent;
+    left: 20px;
+    right: initial;
+    transform: rotate(90deg);
+  }
+
+  &.in {
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  &.in > div {
+    background-color: $color-msg-green;
+  }
+
+  &.in > div::before {
+    border-color: $color-msg-green transparent transparent transparent;
+  }
+
+  &.text {
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+  }
+
+  &.time {
+    text-align: right;
+    font-size: .65em;
+  }
+
+  animation-name: fade-in;
+  animation-duration: 1s;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+

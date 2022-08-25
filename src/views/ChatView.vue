@@ -1,8 +1,7 @@
 <template>
   <div class="vh-100 d-flex">
 
-    <main class="container">
-      <div class="row flex-nowrap h-100">
+    <main class="chat-container">
 
         <section class="col-4 border-right p-0 chatlist d-flex flex-column">
 
@@ -23,7 +22,6 @@
           <ChatFooter/>
 
         </section>
-      </div>
     </main>
   </div>
 

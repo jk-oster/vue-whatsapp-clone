@@ -13,7 +13,8 @@ export default {
 
 <style scoped>
 .icon {
-  width: 20px;
+  width: 20px !important;
+  height: auto !important;
   opacity: 0.6;
 }
 </style>

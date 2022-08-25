@@ -1,0 +1,37 @@
+
+$color-wa-green: #009788;
+$color-wa-green-shade: #128c7e;
+$color-wa-green-light: #63cb77;
+$color-wa-green-active:#00a884;
+$color-wa-green-dark: #2a3942;
+
+$color-wa-bg-black: #0a1014;
+$color-wa-bg-light: #aebac1;
+$color-wa-bg-active: #3b4a54;
+$color-wa-bg-dark: #1c2121;
+
+$color-banner: #eeeeee;
+$color-border: #68828d;
+
+$color-msg-green: #dcf8c6;
+$color-msg-white: #f1f1f1;
+$color-white: #fff;
+
+:root {
+  --whatsapp-green: $color-wa-green;
+  --whatsapp-green-shade: $color-wa-green-shade;
+  --whatsapp-green-active: $color-wa-green-active;
+  --whatsapp-green-light: $color-wa-green-light;
+  --whatsapp-green-dark: $color-wa-green-dark;
+
+  --whatsapp-bg-black: $color-wa-bg-black;
+  --whatsapp-bg-active: $color-wa-bg-active;
+  --whatsapp-gray-light: $color-wa-bg-light;
+
+  --message-green: $color-msg-green;
+  --lightgray: #dbdbdb;
+  --banner-gray: $color-banner;
+  --list-active-gray: #e9ebea;
+  --beige: #e5dcd5;
+  --border-gray: $color-border;
+}

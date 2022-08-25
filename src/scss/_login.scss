@@ -1,0 +1,152 @@
+.login {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+  background-size: 120% 100%;
+  background: linear-gradient(0deg, $color-wa-bg-black 60%,  $color-wa-green 10%);
+
+  header {
+    padding-bottom: 3em;
+    padding-top: 3em;
+
+    img {
+      width: 1.5em;
+      height: 1.5em;
+    }
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+    a {
+      display:flex;
+      align-items: center;
+      text-decoration: none;
+      color: $color-white !important;
+    }
+  }
+
+  main {
+    overflow: auto;
+    color: $color-wa-green-dark;
+    max-height: 100%;
+
+    h2 {
+      font-size: 2em;
+    }
+  }
+  
+  footer {
+    background-color: $color-wa-green-light;
+    bottom: 0;
+  }
+
+  & .box-form {
+    box-shadow: 0 17px 50px 0 rgba(11,20,26,.19),0 12px 15px 0 rgba(11,20,26,.24);
+    background-color: white;
+    border-radius: 4px;
+    padding: 2em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    height: fit-content;
+    max-width: 1180px;
+
+    &-box {
+
+      & .img-feature {
+        border-radius: 4px;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+      }
+
+      width: 100%;
+
+      @media (min-width: 768px) {
+
+        &-left {
+          width: 66% !important;
+        }
+
+        &-right {
+          width: 33% !important;
+        }
+
+      }
+    }
+  }
+
+  & p {
+    margin: 0;
+  }
+
+  & button {
+    margin-right: 1em;
+    margin-top: 0.5em;
+  }
+
+  & input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #B0B3B9;
+  }
+
+  & .remember-me--forget-password {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & .remember-me--forget-password input {
+    margin: 0;
+    margin-right: 7px;
+    width: auto;
+  }
+
+  & label {
+    display: block;
+    position: relative;
+    margin-left: 30px;
+  }
+
+  & label::before {
+    content: ' \f00c';
+    position: absolute;
+    font-family: FontAwesome;
+    background: transparent;
+    border: 3px solid #70F570;
+    border-radius: 4px;
+    color: transparent;
+    left: -30px;
+    transition: all 0.2s linear;
+  }
+
+  & label:hover::before {
+    font-family: FontAwesome;
+    content: ' \f00c';
+    color: #fff;
+    cursor: pointer;
+    background: #70F570;
+  }
+
+  & label:hover::before .text-checkbox {
+    background: #70F570;
+  }
+
+  label span.text-checkbox {
+    display: inline-block;
+    height: auto;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s linear;
+  }
+
+  label input[type="checkbox"] {
+    display: none;
+  }
+}
