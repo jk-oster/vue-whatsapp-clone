@@ -1,5 +1,17 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="vh-100 d-flex">
+    <main class="container">
+      <div class="row flex-nowrap h-100">
+
+        <CreateChat @close="console.log('Closed')"></CreateChat>
+        
+      </div>
+    </main>
   </div>
 </template>
+<script>
+import CreateChat from "@/components/CreateChat";
+export default {
+  components: {CreateChat}
+}
+</script>

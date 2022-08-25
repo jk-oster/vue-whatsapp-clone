@@ -1,11 +1,13 @@
 <template>
-  <div v-bind:id="message.id" class="message" :class="message.userId === userId ? 'out' : 'in'">
+  <div v-bind:id="message.id" class="message" :class="messageInOut">
     <div>
-      <div>
-        <b>{{ userName }}</b><br>{{ message.text }}
+      <div class="text">
+        <b>{{ userName }}</b>
+        <br>
+        {{ message.text }}
       </div>
       <div class="time">
-        {{ message.time}}
+        {{ time }}
       </div>
     </div>
   </div>
@@ -15,13 +17,20 @@
 import {store} from "../store.js"
 export default {
   name: "MessageItem",
-  data() {
-    return {
-      userId: store.currentUser.id,
-      userName: store.currentChat.users.filter(user => user.id === this.message.userId)[0].name,
-    }
-  },
   props: ['message'],
+  computed: {
+    messageInOut() {
+      return this.message.userId === store.currentUser.id ? 'out' : 'in';
+    },
+    userName() {
+      return store.currentChat.users.filter(user => user.id === this.message?.userId)[0].name ?? '';
+    },
+    time() {
+      const hours = '0' + new Date(this.message.time).getHours();
+      const mins  = '0' + new Date(this.message.time).getMinutes();
+      return `${hours.substring(hours.length - 2)}:${mins.substring(hours.length - 2)}`;
+    }
+  }
 }
 </script>
 
@@ -39,6 +48,11 @@ export default {
   display: flex;
   max-width: 80%;
   position: relative;
+}
+
+.text {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
 }
 
 .message > div{

@@ -12,6 +12,7 @@ import {
   getAuth, GoogleAuthProvider, signInWithPopup,
 } from 'firebase/auth'
 import router from "@/router";
+import {initCurrentUser, initUserChats} from "@/firebase";
 export default {
   name: "LoginLeftBox",
   methods: {
@@ -20,6 +21,8 @@ export default {
       const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider)
           .then(() => {
+            initCurrentUser();
+            initUserChats()
             console.log("User signed in successfully");
             router.push('/chats').then(() => {
               console.log('Welcome')

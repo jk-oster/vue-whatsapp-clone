@@ -34,6 +34,7 @@ import {
   signInWithEmailAndPassword
 } from 'firebase/auth'
 import router from "@/router";
+import {initCurrentUser, initUserChats} from "@/firebase";
 
 export default {
   name: "LoginWithEmailBox",
@@ -48,6 +49,8 @@ export default {
       const auth = getAuth();
       signInWithEmailAndPassword(auth, this.email, this.password)
           .then(() => {
+            initCurrentUser();
+            initUserChats();
             console.log("User signed in successfully");
             router.push('/chats').then(() => {
               console.log('Welcome')

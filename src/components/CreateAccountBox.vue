@@ -5,6 +5,12 @@
   </p>
   <div class="inputs">
     <input
+        v-model="username"
+        placeholder="username"
+        type="text"
+    >
+    <br>
+    <input
         v-model="newEmail"
         placeholder="email address"
         type="email"
@@ -41,6 +47,7 @@ export default {
   name: "CreateAccountBox",
   data() {
     return {
+      username: "",
       newEmail: "",
       newPassword: "",
       repPassword: "",
@@ -52,9 +59,9 @@ export default {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, this.newEmail, this.newPassword)
             .then(async (credentials) => {
-              const data = {description: '', name: '', profilePicUrl: '', uid: credentials.user.uid};
+              const data = {name: this.username, img: 'https://picsum.photos/200', id: credentials.user.uid};
               await setData(data, 'users', credentials.user.uid)
-              router.push('/about').then(() => {
+              router.push('/chats').then(() => {
                 console.log('Welcome')
               })
             })

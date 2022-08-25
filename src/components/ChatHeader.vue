@@ -6,7 +6,7 @@
       </div>
       <div class="ml-2 align-middle">
         <p class="font-weight-bold mb-0">{{ store.currentChat.title }}</p>
-        <small><span>{{ store.currentChat.users?.map(user => user.name).join(', ') }}</span></small>
+        <small><span>{{ currentChatNames }}</span></small>
       </div>
     </div>
     <div class="icon-list">
@@ -23,6 +23,11 @@
 import {store} from '../store.js'
 export default {
   name: "ChatHeader",
+  computed: {
+    currentChatNames() {
+      return store.currentChat.users?.map(user => user.name).join(', ')
+    }
+  },
   data() {
     return {
       store
