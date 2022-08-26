@@ -31,6 +31,7 @@
   border-right: 0;
   border-left: 0;
   border-color: var(--list-active-gray);
+  flex-direction: row !important;
 }
 
 .whatsapp-element.list-group-item {
@@ -46,11 +47,21 @@
 .img-title-element {
   display: flex;
   text-align: left;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap
 }
 
 .icon-list {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
+    justify-content: space-evenly;
+  }
 }
 
 .list-group-item {
@@ -76,3 +87,14 @@
 .new-message {
   background-color: orange !important;
 }
+
+
+.chatroom {
+  background-color: var(--beige);
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+

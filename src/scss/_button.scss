@@ -28,7 +28,7 @@
 
   &-icon-only {
     color: $color-wa-bg-dark !important;
-    background-color: transparent  !important;
+    background-color: transparent !important;
     outline: none !important;
     border: none !important;
 
@@ -41,6 +41,16 @@
       overflow: hidden !important;
       position: absolute !important;
     }
+
+    &:focus {
+      background-color: $color-wa-green-active !important;
+      outline: 2px solid $color-wa-green-light !important; 
+    }
+
+  }
+
+  &-border {
+    border: 2px solid $color-wa-bg-active !important;
   }
 
   &-with-icon {

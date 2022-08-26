@@ -45,25 +45,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.btn-icon {
-  height: fit-content;
-  background: transparent;
-  border: none;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
-  opacity: .6;
-}
-
-.text-input {
-  display: inline-block;
-  height: fit-content;
-  max-height: 20vh;
-  overflow-y: auto;
-  overflow-x: clip;
-}
-</style>

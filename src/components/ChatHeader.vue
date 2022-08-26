@@ -1,12 +1,11 @@
 <template>
   <div class="whatsapp-element">
 
-    <div id="headerImg" class="img-title-element">
 
-      <router-link v-if="isMobile()" to="/chats" class="ms-auto mx-2 btn btn-icon-only">
+    <div id="headerImg" class="img-title-element">
+      <router-link v-if="isMobile()" to="/chats" class="btn-back btn btn-icon-only" tabindex="1">
         <i class="bi bi-caret-left"></i><span> Back</span>
       </router-link>
-
       <div>
         <img class="chat_img" :src="store.currentChat.img" alt="">
       </div>

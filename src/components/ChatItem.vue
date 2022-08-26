@@ -2,6 +2,7 @@
   <li v-bind:id="chat.id" class="list-group-item whatsapp-element" tabindex="0"
       :class="{active: active}"
       @click="switchActiveChat"
+      @keyup.enter="switchActiveChat"
   >
     <div class="img-title-element">
       <div>
