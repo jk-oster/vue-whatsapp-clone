@@ -1,31 +1,30 @@
 <template>
-  <h5>Signup</h5>
+  <h2>Signup</h2>
   <p>Already have an account?
     <router-link to="/">Login now!</router-link>
   </p>
-  <div class="inputs">
+  <form>
+    <input
+        v-model="username"
+        placeholder="username"
+        type="text"
+    >
     <input
         v-model="newEmail"
         placeholder="email address"
         type="email"
     >
-    <br>
     <input
         v-model="newPassword"
         placeholder="enter your password"
         type="password"
     >
-    <br>
     <input
         v-model="repPassword"
         placeholder="repeat your password"
         type="password"
     >
-  </div>
-
-  <br>
-  <br>
-  <br>
+  </form>
   <button @click="createAccount">Create Account</button>
 </template>
 
@@ -35,12 +34,13 @@ import {
   createUserWithEmailAndPassword,
 } from 'firebase/auth'
 import router from "@/router";
-import {setData} from "@/firebase";
+import {initCurrentUser, initUserChats} from "@/firebase";
 
 export default {
   name: "CreateAccountBox",
   data() {
     return {
+      username: "",
       newEmail: "",
       newPassword: "",
       repPassword: "",
@@ -51,10 +51,10 @@ export default {
       if (this.newPassword === this.repPassword) {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, this.newEmail, this.newPassword)
-            .then(async (credentials) => {
-              const data = {description: '', name: '', profilePicUrl: '', uid: credentials.user.uid};
-              await setData(data, 'users', credentials.user.uid)
-              router.push('/about').then(() => {
+            .then(async () => {
+              initCurrentUser(this.username);
+              initUserChats();
+              router.push('/chats').then(() => {
                 console.log('Welcome')
               })
             })
