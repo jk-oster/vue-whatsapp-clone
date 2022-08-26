@@ -2,6 +2,7 @@ const { defineConfig } = require("@vue/cli-service");
 
 const pwaConfig = {
   name: "WHatsApp Clone v0.1",
+  description: "This App is a WhatsApp clone built with VueJs and Firebase by © Jakob Osterberger 2022.",
   themeColor: "#00A783",
   msTileColor: "#000000",
   appleMobileWebAppCapable: "yes",

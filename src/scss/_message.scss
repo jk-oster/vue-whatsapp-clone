@@ -46,7 +46,7 @@
     overflow-wrap: anywhere;
   }
 
-  &.time {
+  &.time, & small {
     text-align: right;
     font-size: .65em;
   }

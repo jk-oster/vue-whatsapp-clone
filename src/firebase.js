@@ -146,6 +146,14 @@ export async function initMessages() {
             messages.push(msg);
         });
         store.currentChat.messages = messages;
+
+        const lastMessage = messages[messages.length - 1];
+        if (Notification.permission === "granted" && lastMessage.userId !== store.currentUser.id && lastMessage.time > new Date().getTime() - 10000) {
+            // Check whether notification permissions have already been granted;
+            // if so, create a notification
+            const notification = new Notification(lastMessage.text);
+            // …
+          }
     });
 }
 

@@ -7,7 +7,7 @@
         {{ message.text }}
       </div>
       <div class="time">
-        {{ time }}
+        <small>{{ time }}</small>
       </div>
     </div>
   </div>
