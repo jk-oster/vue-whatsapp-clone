@@ -2,7 +2,7 @@
   <div class="whatsapp-element">
     <div id="headerImg" class="img-title-element">
       <div>
-        <img class="chat_img" v-bind:src="store.currentChat.img" alt="">
+        <img class="chat_img" :src="store.currentChat.img" alt="">
       </div>
       <div class="ml-2 align-middle">
         <p class="mb-0"><b>{{ store.currentChat.title }}</b></p>
@@ -15,7 +15,7 @@
         <span class="input-group-text">
           <i class="bi bi-search"></i>
         </span>
-        <input class="form-control form-control-sm w-100 border-0" type="text" placeholder="Search for message...">
+        <input class="form-control form-control-sm w-100 border-0" type="text" placeholder="Search for message..." v-model="search" @input="store.msgSearch = search">
       </div>
       <button class="my-auto mx-2 btn btn-secondary" id="show-modal" @click="showModal = true">
         <i class="bi bi-person-plus"></i> Add user
@@ -61,7 +61,8 @@ export default {
   data() {
     return {
       store,
-      showModal: false
+      showModal: false,
+      search: '',
     }
   },
   methods: {

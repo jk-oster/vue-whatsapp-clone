@@ -40,6 +40,10 @@ import router from "@/router";
 export default {
   name: "ChatView",
   components : { ChatListScroll, ChatListHeader, ChatListSearch, ChatHeader, ChatRoom, ChatFooter },
+  computed: {
+    msgSearch() {return this.$refs.msgSearch.search},
+    chatSearch() {return this.$refs.chatSearch.search},
+  }, 
   mounted() {
     if( Object.keys(store.currentUser).length === 0) router.push('/').then(() => {
       localStorage.clear()

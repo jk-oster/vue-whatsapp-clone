@@ -18,6 +18,7 @@
     <button class="btn btn-secondary" @click="newUser">Add new user</button>
     <button class="btn btn-primary" @click="addUser">Add selected users to chat</button>
   </form>
+
 </template>
 
 <script>

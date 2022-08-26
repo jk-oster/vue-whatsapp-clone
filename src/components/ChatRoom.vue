@@ -1,7 +1,7 @@
 <template>
   <div ref="chatroom" class="chatroom"  scollable="true">
 
-    <MessageItem v-for="message in store.currentChat.messages" :key="message.id" :message="message"/>
+    <MessageItem v-for="message in filteredMessages" :key="message.id" :message="message"/>
 
   </div>
 
@@ -17,6 +17,13 @@ export default {
     return {
       store
     }
+  },
+  computed: {
+    filteredMessages(){
+      return store.currentChat.messages?.filter(msg => {
+        return msg.text.toLowerCase().includes(store.msgSearch?.toLowerCase() ?? '');
+        }) ?? [];
+    },
   },
   mounted() {
     this.scrollToBottom();

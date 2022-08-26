@@ -1,6 +1,6 @@
 <template>
   <ul class="list-group border-top" scollable="true">
-    <ChatItem v-for="chat in store.chats" :key="chat.id" :chat="chat"/>
+    <ChatItem v-for="chat in filteredChats" :key="chat.id" :chat="chat"/>
   </ul>
 </template>
 
@@ -12,6 +12,14 @@ import ChatItem from "@/components/ChatItem";
 export default {
   name: "ChatListScroll",
   components: {ChatItem},
+  computed: {
+    filteredChats(){
+      console.log(this.search);
+      return store.chats?.filter(chat => {
+        return chat.title.toLowerCase().includes(store.chatSearch?.toLowerCase() ?? '');
+        }) ?? [];
+    },
+  },
   data() {
     return {
       store
