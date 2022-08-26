@@ -34,10 +34,18 @@ import ChatRoom from "@/components/ChatRoom";
 import ChatFooter from "@/components/ChatFooter";
 import ChatListHeader from "@/components/ChatListHeader";
 import ChatListSearch from "@/components/ChatListSearch";
+import {store} from "@/store";
+import router from "@/router";
 
 export default {
   name: "ChatView",
-  components : { ChatListScroll, ChatListHeader, ChatListSearch, ChatHeader, ChatRoom, ChatFooter }
+  components : { ChatListScroll, ChatListHeader, ChatListSearch, ChatHeader, ChatRoom, ChatFooter },
+  mounted() {
+    if( Object.keys(store.currentUser).length === 0) router.push('/').then(() => {
+      localStorage.clear()
+      console.log('you need to login or register first!')
+    })
+  }
 }
 </script>
 

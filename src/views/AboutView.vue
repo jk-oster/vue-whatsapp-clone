@@ -1,17 +1,20 @@
 <template>
-  <div class="vh-100 d-flex">
-    <main class="container">
-      <div class="row flex-nowrap h-100">
 
-        <CreateChat @close="console.log('Closed')"></CreateChat>
-        
-      </div>
-    </main>
-  </div>
+  <PageComp>
+    <template #header>
+      About this whatsapp clone
+    </template>
+    <template #rightbox>
+      <h2>This App...</h2>
+      <p>...is a WhatsApp clone built with VueJs and Firebase by &copy; <a href="https://jkoster.com">Jakob Osterberger</a>
+        2022.</p>
+    </template>
+  </PageComp>
+
 </template>
 <script>
-import CreateChat from "@/components/CreateChat";
+import PageComp from "@/components/PageComp";
 export default {
-  components: {CreateChat}
+  components: {PageComp}
 }
 </script>

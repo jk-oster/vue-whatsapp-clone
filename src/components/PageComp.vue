@@ -32,9 +32,10 @@
       </main>
       <footer class="d-flex py-1 mt-3 justify-content-around">
         <slot name="footer">
-          <p>This is a WhatsApp clone built with VueJs and Firebase by <a href="https://jkoster.com">Jakob Osterberger</a>
-            2022 &copy;</p>
-          <p>All right reserved.</p>
+          <p>&copy; <a href="https://jkoster.com">Jakob Osterberger</a>
+            2022 All right reserved.</p>
+          <p><router-link to="/about">About this page</router-link></p>
+          <p><router-link to="/privacy">Data protection and privacy</router-link></p>
         </slot>
       </footer>
     </div>
