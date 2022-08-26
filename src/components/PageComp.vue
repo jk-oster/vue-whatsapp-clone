@@ -2,11 +2,11 @@
 
     <div class="login">
       <header class="d-flex py-3 justify-content-start align-items-center ms-5">
-        <h1><a href="#"><img src="../assets/hamburger-menu-svgrepo-com.svg" alt="Logo">
+        <h1><router-link to="/"><i class="bi bi-whatsapp"></i>
           <slot name="header">
             WhatsApp Clone v0.1
           </slot>
-        </a></h1>
+        </router-link></h1>
       </header>
       <main class="d-flex justify-content-center">
         <div class="box-form">

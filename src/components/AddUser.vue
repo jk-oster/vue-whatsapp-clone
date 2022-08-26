@@ -15,8 +15,8 @@
            placeholder="userid"
            v-model="userId"
            class="form-control form-control-sm w-100 text-input"/>
-    <button class="btn btn-secondary" @click="newUser">Add new user</button>
-    <button class="btn btn-primary" @click="addUser">Add selected users to chat</button>
+    <button class="btn btn-secondary" @click.prevent="newUser">Add new user</button>
+    <button class="btn btn-primary" @click.prevent="addUser">Add selected users to chat</button>
   </form>
 
 </template>

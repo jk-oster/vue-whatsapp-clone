@@ -13,10 +13,10 @@
 
     <div class="d-flex w-100">
       <input type="text" placeholder="userid" v-model="userId" class="form-control form-control w-60 text-input my-2" />
-      <button class="btn btn-secondary btn-sm" @click="newUser"><i class="bi bi-person-plus"></i> Add user</button>
+      <button class="btn btn-secondary btn-sm" @click.prevent="newUser"><i class="bi bi-person-plus"></i> Add user</button>
     </div>
 
-    <button class="btn btn-primary" @click="addChat"><i class="bi bi-plus"></i> Create chat</button>
+    <button class="btn btn-primary" @click.prevent="addChat"><i class="bi bi-plus"></i> Create chat</button>
   </form>
 </template>
 

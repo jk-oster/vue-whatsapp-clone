@@ -14,7 +14,6 @@ export default {
   components: {ChatItem},
   computed: {
     filteredChats(){
-      console.log(this.search);
       return store.chats?.filter(chat => {
         return chat.title.toLowerCase().includes(store.chatSearch?.toLowerCase() ?? '');
         }) ?? [];

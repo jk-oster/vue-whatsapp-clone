@@ -1,6 +1,19 @@
 .btn {
   text-decoration: none;
 
+  & > span {
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  @media (min-width: 1010px) {
+    & span {
+      width: auto;
+      position: relative;
+    }
+  }
+
   &-primary {
     color: white;
     background-color: $color-wa-green;
@@ -10,6 +23,23 @@
       background-color: $color-wa-green-active;
       border-color: $color-wa-green-active;
       outline: 2px solid $color-wa-green-light;
+    }
+  }
+
+  &-icon-only {
+    color: $color-wa-bg-dark !important;
+    background-color: transparent  !important;
+    outline: none !important;
+    border: none !important;
+
+    &:hover {
+      color: $color-wa-bg-active !important;
+    }
+
+    & > span {
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
     }
   }
 

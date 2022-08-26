@@ -1,6 +1,12 @@
 <template>
   <div class="whatsapp-element">
+
     <div id="headerImg" class="img-title-element">
+
+      <router-link v-if="isMobile()" to="/chats" class="ms-auto mx-2 btn btn-icon-only">
+        <i class="bi bi-caret-left"></i><span> Back</span>
+      </router-link>
+
       <div>
         <img class="chat_img" :src="store.currentChat.img" alt="">
       </div>
@@ -9,20 +15,21 @@
         <small><span>{{ currentChatNames }}</span></small>
       </div>
     </div>
-    <div class="icon-list">
 
+    <div class="icon-list">
       <div class="m-2 border rounded d-flex">
         <span class="input-group-text">
           <i class="bi bi-search"></i>
         </span>
-        <input class="form-control form-control-sm w-100 border-0" type="text" placeholder="Search for message..." v-model="search" @input="store.msgSearch = search">
+        <input class="form-control form-control-sm w-100 border-0" type="text" placeholder="Search for message..."
+          v-model="search" @input="store.msgSearch = search">
       </div>
       <button class="my-auto mx-2 btn btn-secondary" id="show-modal" @click="showModal = true">
-        <i class="bi bi-person-plus"></i> Add user
+        <i class="bi bi-person-plus"></i><span> Add user</span>
       </button>
 
       <button class="my-auto mx-2 btn btn-danger" @click="leaveChat">
-        <i class="bi bi-door-open"></i> Leave chat
+        <i class="bi bi-door-open"></i><span> Leave chat</span>
       </button>
 
       <!--img src="../assets/more-vertical-svgrepo-com.svg" alt="" class="icon mx-2"/-->
@@ -38,7 +45,7 @@
         <h2>Add users to chat</h2>
       </template>
       <template #body>
-        <AddUser/>
+        <AddUser />
       </template>
     </ModalComp>
   </Teleport>
@@ -46,13 +53,13 @@
 </template>
 
 <script>
-import {store} from '../store.js'
+import { store } from '../store.js'
 import ModalComp from "@/components/ModalComp";
 import AddUser from "@/components/AddUser";
 import { leaveChat } from '@/firebase';
 export default {
   name: "ChatHeader",
-  components: {AddUser, ModalComp},
+  components: { AddUser, ModalComp },
   computed: {
     currentChatNames() {
       return store.currentChat.users?.map(user => user.name).join(', ')
@@ -71,14 +78,10 @@ export default {
       chat.users = chat.users.filter(id => store.currentUser.id !== id);
       leaveChat(chat);
       store.currentChat = {};
+    },
+    isMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || screen.width <= 768
     }
   }
 }
 </script>
-
-<style scoped>
-.icon {
-  width: 20px;
-  opacity: .6;
-}
-</style>

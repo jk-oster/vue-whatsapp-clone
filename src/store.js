@@ -3,7 +3,9 @@
 import { reactive } from 'vue'
 export const store = reactive({
     currentUser: {},
-    knownUsers: {},
+    knownUsers: [],
     chats: [],
-    currentChat: {}
+    currentChat: {},
+    msgSearch: "",
+    chatSearch: "",
 })

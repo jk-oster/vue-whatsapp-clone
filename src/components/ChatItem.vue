@@ -19,6 +19,7 @@
 <script>
 import {store} from '../store.js'
 import {initMessages} from "@/firebase";
+import router from "@/router";
 
 export default {
   name: "ChatItem",
@@ -46,12 +47,15 @@ export default {
       store.currentChat = this.chat;
       store.currentUsers = this.chat.users;
       initMessages();
-      console.log(store)
+      console.log(this.isMobile())
+
+      if(this.isMobile()){
+          router.push('/mobile');
+      }
+    },
+    isMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || screen.width <= 768
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>
