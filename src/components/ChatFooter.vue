@@ -8,7 +8,7 @@
     <button class="my-auto mx-2 btn-icon"
             :disabled="disabled"
             @click="sendMessage">
-      <img class="icon" src="../assets/send-svgrepo-com.svg" alt="Send message"/>
+      <i class="bi bi-send"></i>Send
     </button>
   </div>
 </template>

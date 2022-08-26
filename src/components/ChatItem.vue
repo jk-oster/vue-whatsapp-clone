@@ -7,8 +7,8 @@
       <div>
         <img class="chat_img" v-bind:src="chat.img" alt="">
       </div>
-      <div class="ml-2 align-middle">
-        <p class="font-weight-bold mb-0">{{ chat.title }}</p>
+      <div class="ml-2 align-items-center">
+        <p class="mb-0"><b>{{ chat.title }}</b></p>
         <small>{{ lastMessage }}</small>
       </div>
     </div>

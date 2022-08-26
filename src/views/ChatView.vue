@@ -1,7 +1,7 @@
 <template>
   <div class="vh-100 d-flex">
 
-    <main class="chat-container">
+    <main class="chat-container border">
 
         <section class="col-4 border-right p-0 chatlist d-flex flex-column">
 
@@ -13,7 +13,7 @@
 
         </section>
 
-        <section class="col-8 p-0 d-flex flex-column">
+        <section class="col-8 p-0 d-flex flex-column border-start">
 
           <ChatHeader/>
 

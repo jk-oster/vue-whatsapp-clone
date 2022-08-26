@@ -1,0 +1,43 @@
+@import 'base-colors';
+
+$color-wa-green: #00A783;
+$color-wa-green-shade: #128c7e;
+$color-wa-green-light: #63cb77;
+$color-wa-green-active:#00a884;
+$color-wa-green-dark: #2a3942;
+
+$color-wa-bg-black: #0a1014;
+$color-wa-bg-light: #aebac1;
+$color-wa-bg-active: #3b4a54;
+$color-wa-bg-dark: #1c2121;
+
+$color-banner: #eeeeee;
+$color-border: #68828d;
+
+$color-msg-green: #dcf8c6;
+$color-msg-white: #f1f1f1;
+$color-white: #fff;
+
+// scss-docs-start theme-color-variables
+$primary:       $color-wa-green !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $color-wa-bg-light !default;
+$dark:          $color-wa-bg-dark !default;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;
+// scss-docs-end theme-colors-map

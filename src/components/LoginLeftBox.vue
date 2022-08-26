@@ -1,5 +1,5 @@
 <template>
-      <button class="btn btn-alt btn-with-icon-left" @click="googleLogin"><img src="../assets/google-svgrepo-com.svg" class="icon icon-white" alt=""> Login with Google</button>
+      <button class="btn btn-secondary btn-with-icon" @click="googleLogin"><i class="bi bi-google"></i> Login with Google</button>
 </template>
 
 <script>

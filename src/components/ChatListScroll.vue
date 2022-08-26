@@ -8,6 +8,7 @@
 import {store} from '../store.js'
 import ChatItem from "@/components/ChatItem";
 
+
 export default {
   name: "ChatListScroll",
   components: {ChatItem},

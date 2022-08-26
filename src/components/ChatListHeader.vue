@@ -1,11 +1,11 @@
 <template>
-  <div class="whatsapp-element">
+  <div class="whatsapp-element px-2">
     <div class="icon-list d-flex justify-content-between">
-      <button class="my-auto mx-2 btn-icon" @click="signOut">
-        <img src="../assets/logout-svgrepo-com.svg" alt="" class="mx-2 icon "/>Logout
+      <button class="my-auto btn btn-secondary" @click="signOut">
+        <i class="bi bi-box-arrow-left"></i> Logout
       </button>
-      <button class="my-auto mx-2 btn-icon" id="show-modal" @click="showModal = true">
-        <img src="../assets/add-svgrepo-com.svg" alt="" class="mx-2 icon"/>New chat
+      <button class="my-auto btn btn-primary" id="show-modal" @click="showModal = true">
+        <i class="bi bi-plus-circle"></i> New chat
       </button>
       <!--button class="my-auto mx-2 btn-icon">
         <img src="../assets/more-vertical-svgrepo-com.svg" alt="" class="mx-2 icon"/>

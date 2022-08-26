@@ -3,8 +3,8 @@
   justify-content: space-between;
   flex-direction: column;
   height: 100vh;
-  background-size: 120% 100%;
-  background: linear-gradient(0deg, $color-wa-bg-black 60%,  $color-wa-green 10%);
+  background-size: 140% 90%;
+  background: linear-gradient(0deg, $color-wa-bg-black 60%, $color-wa-green 5%);
 
   header {
     padding-bottom: 3em;
@@ -14,15 +14,17 @@
       width: 1.5em;
       height: 1.5em;
     }
+
     h1 {
       font-size: 1.5em;
       margin: 0;
     }
+
     a {
-      display:flex;
+      display: flex;
       align-items: center;
       text-decoration: none;
-      color: $color-white !important;
+      color: $color-white  !important;
     }
   }
 
@@ -35,37 +37,48 @@
       font-size: 2em;
     }
   }
-  
+
   footer {
     background-color: $color-wa-green-light;
-    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media (min-width: 768px) {
+      bottom: 0;
+    }
+
   }
 
   & .box-form {
-    box-shadow: 0 17px 50px 0 rgba(11,20,26,.19),0 12px 15px 0 rgba(11,20,26,.24);
+    box-shadow: 0 17px 50px 0 rgba(11, 20, 26, .19), 0 12px 15px 0 rgba(11, 20, 26, .24);
     background-color: white;
-    border-radius: 4px;
-    padding: 2em;
+    border-radius: 8px;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap-reverse;
     height: fit-content;
     max-width: 1180px;
+    overflow: hidden;
 
     &-box {
-
-      & .img-feature {
-        border-radius: 4px;
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-      }
-
+      margin-top: auto;
+      margin-bottom: auto;
       width: 100%;
 
-      @media (min-width: 768px) {
+      & .img-feature {
+        // width: 100%;
+        max-width: 720px;
+        // height: auto;
 
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+
+      @media (min-width: 768px) {
         &-left {
           width: 66% !important;
         }
@@ -73,7 +86,6 @@
         &-right {
           width: 33% !important;
         }
-
       }
     }
   }
@@ -85,15 +97,6 @@
   & button {
     margin-right: 1em;
     margin-top: 0.5em;
-  }
-
-  & input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #B0B3B9;
   }
 
   & .remember-me--forget-password {

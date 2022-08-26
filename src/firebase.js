@@ -120,6 +120,10 @@ export async function addChat(chat) {
     return setData(chat, `chats`, chat.id)
 }
 
+export async function leaveChat(chat) {
+    return setData(chat, `chats`, chat.id)
+}
+
 export async function initCurrentUser(username) {
     const userData = {
         id: auth.currentUser.uid,

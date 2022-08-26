@@ -5,21 +5,24 @@
         <img class="chat_img" v-bind:src="store.currentChat.img" alt="">
       </div>
       <div class="ml-2 align-middle">
-        <p class="font-weight-bold mb-0">{{ store.currentChat.title }}</p>
+        <p class="mb-0"><b>{{ store.currentChat.title }}</b></p>
         <small><span>{{ currentChatNames }}</span></small>
       </div>
     </div>
     <div class="icon-list">
 
       <div class="m-2 border rounded d-flex">
-        <img src="../assets/search-svgrepo-com.svg" alt="" class="pl-2 icon"/>
-        <input class="form-control form-control-sm w-100 border-0" type="text" placeholder="Search for message in chat">
+        <span class="input-group-text">
+          <i class="bi bi-search"></i>
+        </span>
+        <input class="form-control form-control-sm w-100 border-0" type="text" placeholder="Search for message...">
       </div>
-      <button class="my-auto mx-2 btn-icon btn-with-icon btn-with-icon-left" id="show-modal" @click="showModal = true">
-        <img src="../assets/add-user-svgrepo-com.svg" alt="" class="icon"/>Add user
+      <button class="my-auto mx-2 btn btn-secondary" id="show-modal" @click="showModal = true">
+        <i class="bi bi-person-plus"></i> Add user
       </button>
-      <button class="my-auto mx-2 btn-icon btn-with-icon btn-with-icon-left">
-        <img src="../assets/trash-bin-svgrepo-com.svg" alt="" class="icon"/>Leave chat
+
+      <button class="my-auto mx-2 btn btn-danger" @click="leaveChat">
+        <i class="bi bi-door-open"></i> Leave chat
       </button>
 
       <!--img src="../assets/more-vertical-svgrepo-com.svg" alt="" class="icon mx-2"/-->
@@ -46,6 +49,7 @@
 import {store} from '../store.js'
 import ModalComp from "@/components/ModalComp";
 import AddUser from "@/components/AddUser";
+import { leaveChat } from '@/firebase';
 export default {
   name: "ChatHeader",
   components: {AddUser, ModalComp},
@@ -59,6 +63,14 @@ export default {
       store,
       showModal: false
     }
+  },
+  methods: {
+    leaveChat() {
+      const chat = store.currentChat;
+      chat.users = chat.users.filter(id => store.currentUser.id !== id);
+      leaveChat(chat);
+      store.currentChat = {};
+    }
   }
 }
 </script>
@@ -66,7 +78,6 @@ export default {
 <style scoped>
 .icon {
   width: 20px;
-  height: 20px;
   opacity: .6;
 }
 </style>

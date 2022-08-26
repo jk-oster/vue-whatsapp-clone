@@ -1,31 +1,28 @@
 <template>
-      <form>
-        <input type="text" placeholder="Chat title"
-               v-model="title"
-               class="form-control form-control-sm w-100"/>
-        <label for="select" class="form-label">Select users:</label>
-        <select id="select" name="select"
-                multiple placeholder="Add users"
-                v-model="selectedUsers"
-                class="form-control form-select">
-          <option v-for="user in knownUsers"
-                  :value="user.id"
-                  :key="user.id">
-            {{ user.name }}
-          </option>
-        </select>
-        <input type="text"
-               placeholder="userid"
-               v-model="userId"
-               class="form-control form-control-sm w-100 text-input"/>
-        <button class="btn btn-alt" @click="newUser">Add user</button>
-        <button class="btn btn-primary" @click="addChat">Create chat</button>
-      </form>
+  <form class="form">
+    <label for="title" class="d-none">Title</label>
+    <input id="title" type="text" placeholder="Chat title" v-model="title" class="form-control w-100 my-2" />
+
+    <label for="select" class="form-label mb-1 pb-0">Select users:</label>
+    <select id="select" name="select" multiple placeholder="Add users" v-model="selectedUsers"
+      class="form-control form-select w-100 my-2">
+      <option v-for="user in knownUsers" :value="user.id" :key="user.id">
+        {{ user.name }}
+      </option>
+    </select>
+
+    <div class="d-flex w-100">
+      <input type="text" placeholder="userid" v-model="userId" class="form-control form-control w-60 text-input my-2" />
+      <button class="btn btn-secondary btn-sm" @click="newUser"><i class="bi bi-person-plus"></i> Add user</button>
+    </div>
+
+    <button class="btn btn-primary" @click="addChat"><i class="bi bi-plus"></i> Create chat</button>
+  </form>
 </template>
 
 <script>
-import {store} from "@/store";
-import {addChat, getRandId} from "@/firebase";
+import { store } from "@/store";
+import { addChat, getRandId } from "@/firebase";
 
 export default {
   name: "CreateChat",

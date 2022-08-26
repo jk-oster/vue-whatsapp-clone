@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form class="form">
     <label for="select" class="form-label">Select users:</label>
     <select id="select" name="select"
             multiple placeholder="Add users"
@@ -15,7 +15,7 @@
            placeholder="userid"
            v-model="userId"
            class="form-control form-control-sm w-100 text-input"/>
-    <button class="btn btn-alt" @click="newUser">Add new user</button>
+    <button class="btn btn-secondary" @click="newUser">Add new user</button>
     <button class="btn btn-primary" @click="addUser">Add selected users to chat</button>
   </form>
 </template>

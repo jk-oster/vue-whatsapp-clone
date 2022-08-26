@@ -16,7 +16,7 @@
               <button
                   class="btn btn-danger"
                   @click="$emit('close')"
-              >Close</button>
+              ><i class="bi bi-x-lg"></i> Close</button>
             </slot>
           </div>
         </div>
