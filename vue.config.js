@@ -31,6 +31,10 @@ const pwaConfig = {
   // ],
   start_url: ".",
   display: "standalone",
+  workboxPluginMode: "InjectManifest",
+  workboxOptions: {
+    swSrc: "./src/service-worker.js",
+  },
 };
 
 module.exports = defineConfig({
