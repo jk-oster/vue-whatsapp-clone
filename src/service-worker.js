@@ -5,17 +5,16 @@ precacheAndRoute(self.__WB_MANIFEST)
 //Web Push Notifications//
 // let click_open_url;
 self.addEventListener("push", function (event) {
-  let push_message = event.data.json();
-  // push notification can send event.data.json() as well
-//   click_open_url = push_message.notification.data.url;
+  let push_message = event.data;
+  console.log(push_message);
   const options = {
-    body: push_message.notification.body,
-    icon: push_message.notification.icon,
-    image: push_message.notification.image,
+    body: push_message.body ?? push_message,
+    icon: push_message.icon ?? 'https://picsum.photos/200',
+    image: push_message.image ?? '',
     tag: "alert",
   };
   event.waitUntil(
-    self.registration.showNotification(push_message.notification.title, options)
+    self.registration.showNotification(push_message.title, options)
   );
 });
 

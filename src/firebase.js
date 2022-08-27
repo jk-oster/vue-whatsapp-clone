@@ -176,7 +176,13 @@ export async function initMessages(chatId) {
       editedChat.newMessage++;
       // addChat(editedChat);
       if (store.lastMessageId !== lastMessage.id) {
-        new Notification(lastMessage.text);
+        new Notification({
+            title: "New Message",
+            body: lastMessage.text,
+            icon: 'https://picsum.photos/200',
+            image: 'https://picsum.photos/200',
+            
+        });
         store.lastMessageId = lastMessage.id;
       }
     }
