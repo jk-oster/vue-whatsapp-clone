@@ -8,4 +8,5 @@ export const store = reactive({
     currentChat: {},
     msgSearch: "",
     chatSearch: "",
+    lastMessageId: "",
 })

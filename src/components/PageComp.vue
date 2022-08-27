@@ -2,7 +2,7 @@
 
     <div class="login">
       <header class="d-flex py-3 justify-content-start align-items-center ms-5">
-        <h1><router-link to="/"><i class="bi bi-whatsapp"></i>
+        <h1><router-link to="/"><i class="bi bi-whatsapp me-1"></i>
           <slot name="header">
             <span> WhatsApp Clone v0.1</span>
           </slot>
@@ -41,8 +41,8 @@
       <footer class="d-flex py-1 justify-content-around">
         <slot name="footer">
           <p>&copy; <a href="https://jkoster.com">Jakob Osterberger</a>
-            2022 All right reserved.</p>
-          <p><router-link to="/about">About this page</router-link></p>
+            2022 All rights reserved.</p>
+          <p><router-link to="/about">About this application</router-link></p>
           <p><router-link to="/privacy">Data protection and privacy</router-link></p>
         </slot>
       </footer>

@@ -1,9 +1,10 @@
 <template>
   <li v-bind:id="chat.id" class="list-group-item whatsapp-element" tabindex="0"
-      :class="{active: active}"
+      :class="{'active': chat.active, 'new-message': chat.newMessage}"
       @click="switchActiveChat"
       @keyup.enter="switchActiveChat"
   >
+  <div  class="notification"><span>{{ chat.newMessage > 0 ? chat.newMessage : '' }}</span></div>
     <div class="img-title-element">
       <div>
         <img class="chat_img" v-bind:src="chat.img" alt="">
@@ -19,7 +20,7 @@
 
 <script>
 import {store} from '../store.js'
-import {initMessages} from "@/firebase";
+// import {initMessages} from "@/firebase";
 import router from "@/router";
 
 export default {
@@ -35,21 +36,22 @@ export default {
       const hours = '0' + new Date(time).getHours();
       const mins  = '0' + new Date(time).getMinutes();
       return `${hours.substring(hours.length - 2)}:${mins.substring(mins.length - 2)}`;
-    }
+    },
   },
   data() {
     return {
       active: false,
-      newMessage: false,
     }
   },
   methods: {
     switchActiveChat() {
       store.currentChat = this.chat;
+      console.log(this.chat);
+      store.currentChat.newMessage = 0;
+      store.chats.forEach(chat => chat.active = false);
+      // store.chats.filter(chat => store.currentChat.id === chat.id)[0].active = true;
+      store.currentChat.active = true;
       store.currentUsers = this.chat.users;
-      initMessages();
-      console.log(this.isMobile())
-
       if(this.isMobile()){
           router.push('/mobile');
       }

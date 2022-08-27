@@ -85,7 +85,17 @@
 }
 
 .new-message {
-  background-color: orange !important;
+  & .notification {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.5em;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: orange !important;
+  }
 }
 
 
@@ -96,5 +106,13 @@
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-}
 
+  & .top-notification {
+    align-self: center;
+    border-radius: 8px;
+    padding: 1em;
+    background-color: #ffffff;
+    margin: 1em;
+  }
+
+}
