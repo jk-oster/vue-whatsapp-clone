@@ -4,13 +4,21 @@
       <header class="d-flex py-3 justify-content-start align-items-center ms-5">
         <h1><router-link to="/"><i class="bi bi-whatsapp"></i>
           <slot name="header">
-            WhatsApp Clone v0.1
+            <span> WhatsApp Clone v0.1</span>
           </slot>
         </router-link></h1>
       </header>
       <main class="d-flex justify-content-center">
         <div class="box-form">
-          <div class="box-form-box box-form-box-left">
+
+          <div v-if="layout == 'noCols'" class="box-form-box p-3">
+            <slot name="main">
+              Main content
+            </slot>
+          </div>
+
+
+          <div v-if="layout != 'noCols' || boxLayout != 'noLeft'" class="box-form-box box-form-box-left">
 
             <slot name="leftbox">
               <img class="img-feature" src="../assets/adem-ay-ik_AuIWeBBM-unsplash.jpg" alt="">
@@ -19,7 +27,7 @@
 
           </div>
 
-          <div class="box-form-box box-form-box-right p-4">
+          <div v-if="layout != 'noCols'" class="box-form-box box-form-box-right p-4">
 
             <slot name="rightbox">
               default slot
@@ -30,7 +38,7 @@
         </div>
 
       </main>
-      <footer class="d-flex py-1 mt-3 justify-content-around">
+      <footer class="d-flex py-1 justify-content-around">
         <slot name="footer">
           <p>&copy; <a href="https://jkoster.com">Jakob Osterberger</a>
             2022 All right reserved.</p>
@@ -43,6 +51,7 @@
 
 <script>
 export default {
-  name: "PageComp"
+  name: "PageComp",
+  props: ["layout", "boxLayout"],
 }
 </script>
