@@ -31,10 +31,6 @@ const pwaConfig = {
   // ],
   start_url: ".",
   display: "standalone",
-  workboxPluginMode: "InjectManifest",
-  workboxOptions: {
-    swSrc: "./src/sw.js",
-  },
 };
 
 module.exports = defineConfig({
