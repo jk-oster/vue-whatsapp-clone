@@ -63,13 +63,13 @@
 </template>
 
 <script>
-import { isMobile } from '@/util';
+import { isMobile as checkMobile } from '@/util';
 export default {
   name: "PageComp",
   props: ["layout", "boxLayout"],
   data() {
     return {
-      isMobile: isMobile,
+      isMobile: checkMobile,
     }
   }
 }

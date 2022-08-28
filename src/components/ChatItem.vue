@@ -20,7 +20,7 @@
 import { store } from '../store.js'
 // import {initMessages} from "@/firebase";
 import router from "@/router";
-import { isMobile } from '@/util';
+import { isMobile as checkMobile } from '@/util';
 
 export default {
   name: "ChatItem",
@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       active: false,
-      isMobile: isMobile
+      isMobile: checkMobile
     }
   },
   methods: {
@@ -52,7 +52,7 @@ export default {
       // store.chats.filter(chat => store.currentChat.id === chat.id)[0].active = true;
       store.currentChat.active = true;
       store.currentUsers = this.chat.users;
-      if (isMobile) {
+      if (this.isMobile) {
         router.push('/mobile');
       }
     },

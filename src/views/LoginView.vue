@@ -16,18 +16,18 @@
 import LoginLeftBox from "@/components/LoginLeftBox";
 import LoginWithEmailBox from "@/components/LoginWithEmailBox";
 import PageComp from "@/components/PageComp";
-import { isMobile } from "@/util";
+import { isMobile as checkMobile } from "@/util";
 
 export default {
   name: "LoginView",
   components: { PageComp, LoginWithEmailBox, LoginLeftBox },
   data() {
     return {
-      isMobile: isMobile
+      isMobile: checkMobile
     }
   },
   computed: {
-    boxLayout() { return isMobile ? 'noLeft' : 'left'; }
+    boxLayout() { return this.isMobile ? 'noLeft' : 'left'; }
   },
 }
 </script>

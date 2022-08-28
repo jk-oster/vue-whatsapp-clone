@@ -56,7 +56,7 @@ import { store } from '../store.js'
 import ModalComp from "@/components/ModalComp";
 import AddUser from "@/components/AddUser";
 import { leaveChat } from '@/firebase';
-import { isMobile } from "@/util"
+import { isMobile as checkMobile }  from "@/util";
 export default {
   name: "ChatHeader",
   components: { AddUser, ModalComp },
@@ -70,7 +70,7 @@ export default {
       store,
       showModal: false,
       search: '',
-      isMobile: isMobile
+      isMobile: checkMobile
     }
   },
   methods: {

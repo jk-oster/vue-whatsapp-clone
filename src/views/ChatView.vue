@@ -26,19 +26,19 @@ import { store } from "@/store";
 import router from "@/router";
 import ChatList from "../components/ChatList.vue";
 import ChatComp from "../components/ChatComp.vue";
-import { isMobile } from "@/util";
+import { isMobile as checkMobile } from "@/util";
 
 export default {
   name: "ChatView",
   components: { ChatList, ChatComp },
   data() {
     return {
-      isMobile: isMobile
+      isMobile: checkMobile
     }
   },
   computed: {
     classes() {
-      return !isMobile ? 'col-4 border-right p-0 chatlist d-flex flex-column' : 'col-12 p-0 chatlist d-flex  flex-column'
+      return !this.isMobile ? 'col-4 border-right p-0 chatlist d-flex flex-column' : 'col-12 p-0 chatlist d-flex  flex-column'
     },
   },
   mounted() {

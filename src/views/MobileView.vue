@@ -19,14 +19,14 @@
 import { store } from "@/store";
 import router from "@/router";
 import ChatComp from "../components/ChatComp.vue";
-import { isMobile } from "@/util";
+import { isMobile as checkMobile } from "@/util";
 
 export default {
   name: "ChatView",
   components: { ChatComp },
   data() {
     return {
-      isMobile: isMobile
+      isMobile: checkMobile
     }
   },
   mounted() {
@@ -34,7 +34,7 @@ export default {
       localStorage.clear()
       console.log('you need to login or register first!')
     })
-    else if (!isMobile) router.push('/chats');
+    else if (!this.isMobile) router.push('/chats');
   },
 }
 </script>

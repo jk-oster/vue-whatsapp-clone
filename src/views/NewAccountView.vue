@@ -17,18 +17,18 @@
 import LoginLeftBox from "@/components/LoginLeftBox";
 import CreateAccountBox from "@/components/CreateAccountBox";
 import PageComp from "@/components/PageComp";
-import { isMobile } from "@/util";
+import { isMobile as checkMobile } from "@/util";
 
 export default {
   name: "NewAccountView",
   components: { CreateAccountBox, LoginLeftBox, PageComp },
   data() {
     return {
-      isMobile: isMobile
+      isMobile: checkMobile
     }
   },
   computed: {
-    boxLayout() { return isMobile ? 'noLeft' : 'left'; }
+    boxLayout() { return this.isMobile ? 'noLeft' : 'left'; }
   }
 }
 </script>
