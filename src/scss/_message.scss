@@ -6,8 +6,8 @@
   & > div {
     background-color: $color-msg-white;
     border-radius: .5em;
-    margin: 1em 2em;
-    padding: 1em;
+    margin: 0.5em 2em;
+    padding: 5px 10px;
     text-align: left;
   }
 
@@ -18,7 +18,7 @@
     border-color: $color-msg-white transparent transparent transparent;
     position: absolute;
     right: 22px;
-    top: 16px;
+    top: 8px;
   }
 
   &.out > div::before {
