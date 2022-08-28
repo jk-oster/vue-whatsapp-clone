@@ -48,7 +48,6 @@ export async function updateData(data, path, ...pathSegments) {
 export async function addData(path, data) {
   try {
     const docRef = await addDoc(collection(db, path), data);
-    console.log("Document written with ID: " + docRef.path);
     return docRef;
   } catch (error) {
     console.error("Error adding document", error);
@@ -62,7 +61,6 @@ export async function getDocData(path, pathSegments) {
 }
 
 export async function getDataFromDocRef(docRef) {
-  console.info("Document Ref: " + docRef.path);
   const docSnap = await getDoc(docRef);
   if (!docSnap.exists()) {
     console.error("No such document! " + docRef.path);
@@ -125,8 +123,6 @@ export async function addMessage(message, chatId) {
 }
 
 export async function addChat(chat) {
-  console.log(chat);
-  console.log(store);
   store.currentChat = chat;
   return setData(chat, `chats`, chat.id);
 }
@@ -142,7 +138,6 @@ export async function initCurrentUser(username) {
     name: username ?? auth.currentUser.displayName ?? auth.currentUser.email,
     email: auth.currentUser.email,
   };
-  console.log(auth.currentUser);
   store.currentUser = userData;
   await setData(userData, "users", auth.currentUser.uid);
 }
@@ -156,7 +151,6 @@ export async function initMessages(chat) {
   onSnapshot(userChatsQuery, async (querySnapshot) => {
     console.log("a new message received");
     const messages = [];
-    console.log(messages);
     querySnapshot.forEach((snapShotDoc) => {
       const msg = snapShotDoc.data();
       messages.push(msg);
@@ -198,7 +192,6 @@ export async function initUserChats() {
   onSnapshot(userChatsQuery, async (querySnapshot) => {
     console.log("chats updated");
     const chats = [];
-    console.log(chats);
     querySnapshot.forEach((snapShotDoc) => {
       const chat = snapShotDoc.data();
       chat.newMessage = 0;
@@ -220,5 +213,4 @@ export async function initUserChats() {
     store.chats = chats;
     if(store.currentChat?.id) store.currentChat = store.chats.filter(chat => chat.id === store.currentChat.id)
   });
-  console.log(store);
 }

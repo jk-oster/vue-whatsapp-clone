@@ -26,10 +26,7 @@ export default {
   },
   methods: {
     sendMessage() {
-      console.log(this.input !== "")
-      console.log(this.input);
       if (this.input !== "") {
-
         const timeStamp = new Date().getTime();
         const newMessage = {
           id: 'msg' + timeStamp,
