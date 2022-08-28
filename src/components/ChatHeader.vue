@@ -16,7 +16,7 @@
     </div>
 
     <div class="icon-list">
-      <div class="m-2 border rounded d-flex">
+      <div class="m-2 rounded d-flex">
         <span class="input-group-text">
           <i class="bi bi-search"></i>
         </span>
