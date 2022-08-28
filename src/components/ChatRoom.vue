@@ -5,7 +5,7 @@
     <div class="top-notification" v-if="showNoChatSelected">Select a chat to display, create <i
         class="bi bi-plus-circle"></i> one or join <i class="bi bi-envelope"></i> the global WhatsApp Clone Chat by the
       chat id:
-      <code>chat1661478319744</code>
+      <code>{{ globalChatId }}</code>
     </div>
 
     <MessageItem v-for="message in filteredMessages" :key="message.id" :message="message" />
@@ -17,12 +17,14 @@
 <script>
 import { store } from "../store";
 import MessageItem from "@/components/MessageItem";
+import { globalChatId } from "@/util";
 export default {
   name: "ChatRoom",
   components: { MessageItem },
   data() {
     return {
-      store
+      store,
+      globalChatId: globalChatId
     }
   },
   computed: {

@@ -4,8 +4,8 @@
   <PageComp :boxLayout="boxLayout">
 
     <template #rightbox>
-      <CreateAccountBox/>
-      <LoginLeftBox/>
+      <CreateAccountBox />
+      <LoginLeftBox />
     </template>
 
   </PageComp>
@@ -17,17 +17,13 @@
 import LoginLeftBox from "@/components/LoginLeftBox";
 import CreateAccountBox from "@/components/CreateAccountBox";
 import PageComp from "@/components/PageComp";
+import { isMobile } from "@/util";
 
 export default {
   name: "NewAccountView",
-  components: {CreateAccountBox, LoginLeftBox, PageComp},
+  components: { CreateAccountBox, LoginLeftBox, PageComp },
   computed: {
-    boxLayout() { return this.isMobile() ? 'noLeft' : 'left'; }
-  },
-  methods: {
-    isMobile() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || screen.width <= 768
-    }
+    boxLayout() { return isMobile() ? 'noLeft' : 'left'; }
   }
 }
 </script>

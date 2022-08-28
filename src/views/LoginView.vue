@@ -4,8 +4,8 @@
   <PageComp :boxLayout="boxLayout">
 
     <template #rightbox>
-      <LoginWithEmailBox/>
-      <LoginLeftBox/>
+      <LoginWithEmailBox />
+      <LoginLeftBox />
     </template>
 
   </PageComp>
@@ -16,17 +16,13 @@
 import LoginLeftBox from "@/components/LoginLeftBox";
 import LoginWithEmailBox from "@/components/LoginWithEmailBox";
 import PageComp from "@/components/PageComp";
+import { isMobile } from "@/util";
 
 export default {
   name: "LoginView",
-  components: {PageComp, LoginWithEmailBox, LoginLeftBox},
+  components: { PageComp, LoginWithEmailBox, LoginLeftBox },
   computed: {
-    boxLayout() { return this.isMobile() ? 'noLeft' : 'left'; }
+    boxLayout() { return isMobile() ? 'noLeft' : 'left'; }
   },
-  methods: {
-    isMobile() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || screen.width <= 768
-    }
-  }
 }
 </script>

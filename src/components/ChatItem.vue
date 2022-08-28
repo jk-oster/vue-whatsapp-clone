@@ -1,11 +1,9 @@
 <template>
   <li v-bind:id="chat.id" class="list-group-item whatsapp-element" tabindex="0"
-      :class="{'active': chat.active, 'new-message': chat.newMessage}"
-      @click="switchActiveChat"
-      @keyup.enter="switchActiveChat"
-  >
+    :class="{ 'active': chat.active, 'new-message': chat.newMessage }" @click="switchActiveChat"
+    @keyup.enter="switchActiveChat">
     <div class="img-title-element">
-      <div  class="notification"><span>{{ chat.newMessage > 0 ? chat.newMessage : '' }}</span></div>
+      <div class="notification"><span>{{ chat.newMessage > 0 ? chat.newMessage : '' }}</span></div>
       <div>
         <img class="chat_img" v-bind:src="chat.img" alt="">
       </div>
@@ -19,9 +17,10 @@
 </template>
 
 <script>
-import {store} from '../store.js'
+import { store } from '../store.js'
 // import {initMessages} from "@/firebase";
 import router from "@/router";
+import { isMobile } from '@/util';
 
 export default {
   name: "ChatItem",
@@ -32,11 +31,14 @@ export default {
     },
     lastTime() {
       const time = this.chat.messages[this.chat.messages.length - 1]?.time ?? '';
-      if(time == '') return '**:**';
+      if (time == '') return '**:**';
       const hours = '0' + new Date(time).getHours();
-      const mins  = '0' + new Date(time).getMinutes();
+      const mins = '0' + new Date(time).getMinutes();
       return `${hours.substring(hours.length - 2)}:${mins.substring(mins.length - 2)}`;
     },
+    isMobile() {
+      return isMobile();
+    }
   },
   data() {
     return {
@@ -52,13 +54,10 @@ export default {
       // store.chats.filter(chat => store.currentChat.id === chat.id)[0].active = true;
       store.currentChat.active = true;
       store.currentUsers = this.chat.users;
-      if(this.isMobile()){
-          router.push('/mobile');
+      if (isMobile()) {
+        router.push('/mobile');
       }
     },
-    isMobile() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || screen.width <= 768
-    }
   }
 }
 </script>

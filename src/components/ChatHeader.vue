@@ -3,7 +3,7 @@
 
 
     <div id="headerImg" class="img-title-element">
-      <router-link v-if="isMobile()" to="/chats" class="btn-back btn btn-icon-only" tabindex="1">
+      <router-link v-if="isMobile" to="/chats" class="btn-back btn btn-icon-only" tabindex="1">
         <i class="bi bi-caret-left"></i><span> Back</span>
       </router-link>
       <div>
@@ -56,12 +56,16 @@ import { store } from '../store.js'
 import ModalComp from "@/components/ModalComp";
 import AddUser from "@/components/AddUser";
 import { leaveChat } from '@/firebase';
+import { isMobile } from "@/util"
 export default {
   name: "ChatHeader",
   components: { AddUser, ModalComp },
   computed: {
     currentChatNames() {
       return store.currentChat.users?.map(user => user.name).join(', ')
+    },
+    isMobile() {
+      return isMobile()
     }
   },
   data() {
@@ -78,9 +82,6 @@ export default {
       leaveChat(chat);
       store.currentChat = {};
     },
-    isMobile() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || screen.width <= 768
-    }
   }
 }
 </script>

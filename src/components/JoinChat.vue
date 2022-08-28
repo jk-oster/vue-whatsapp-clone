@@ -1,6 +1,10 @@
 /* eslint-disable */
 <template>
     <form class="form">
+        <div class="w-100">Join the global WhatsApp Clone Chat by the
+            chat id:
+            <code>{{ globalChatId }}</code>
+        </div>
         <div class="d-flex w-100">
             <label for="chatId" class="d-none">Chat ID</label>
             <input id="chatId" type="text" placeholder="chat id" v-model="chatId"
@@ -17,6 +21,7 @@
 <script>
 import { store } from "@/store";
 import { addChat, getChatData } from "@/firebase";
+import { globalChatId } from "@/util";
 
 export default {
     name: "JoinChat",
@@ -34,6 +39,7 @@ export default {
         return {
             chatId: '',
             password: '',
+            gobalChatId: globalChatId,
         }
     }
 }
