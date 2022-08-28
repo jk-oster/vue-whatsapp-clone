@@ -19,7 +19,7 @@
   <div class="remember-me--forget-password">
     <p>Forgot your password?</p>
   </div>
-  <button @click="emailLogin" class="btn btn-primary btn-lg"><i class="bi bi-box-arrow-in-right"></i> Login with
+  <button @click="emailLogin" class="btn btn-primary"><i class="bi bi-box-arrow-in-right"></i> Login with
     email</button>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-      <button class="btn btn-secondary btn-with-icon" @click="googleLogin"><i class="bi bi-google"></i> Login with Google</button>
+      <button class="btn btn-secondary btn-with-icon" @click="googleLogin"><i class="bi bi-google"></i>oogle Login</button>
 </template>
 
 <script>

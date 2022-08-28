@@ -1,11 +1,11 @@
   <template>
 
   <div class="login">
-    <header class="d-flex py-3 justify-content-between align-items-baseline mx-5">
+    <header class="d-flex py-3 justify-content-between align-items-baseline" :class="{'mx-5': !isMobile, 'ms-4': isMobile}">
       <h1>
         <router-link to="/"><i class="bi bi-whatsapp me-2"></i>
           <slot name="header">
-            <span> WhatsApp Clone v0.1.1</span>
+            <span> WhatsApp Clone</span>
           </slot>
         </router-link>
       </h1>
