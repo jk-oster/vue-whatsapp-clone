@@ -64,15 +64,13 @@ export default {
     currentChatNames() {
       return store.currentChat.users?.map(user => user.name).join(', ')
     },
-    isMobile() {
-      return isMobile()
-    }
   },
   data() {
     return {
       store,
       showModal: false,
       search: '',
+      isMobile: isMobile
     }
   },
   methods: {

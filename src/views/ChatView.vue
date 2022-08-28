@@ -31,11 +31,15 @@ import { isMobile } from "@/util";
 export default {
   name: "ChatView",
   components: { ChatList, ChatComp },
+  data() {
+    return {
+      isMobile: isMobile
+    }
+  },
   computed: {
     classes() {
-      return !isMobile() ? 'col-4 border-right p-0 chatlist d-flex flex-column' : 'col-12 p-0 chatlist d-flex  flex-column'
+      return !isMobile ? 'col-4 border-right p-0 chatlist d-flex flex-column' : 'col-12 p-0 chatlist d-flex  flex-column'
     },
-    isMobile() { return isMobile() }
   },
   mounted() {
     if (Object.keys(store.currentUser).length === 0) router.push('/').then(() => {

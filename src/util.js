@@ -1,7 +1,13 @@
+import {computed, reactive } from 'vue';
 
-export const isMobile = () => {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || screen.width <= 768
-}
+// Make Screen Size reactive
+const currentScreen = reactive({
+  width: window.screen.width
+});
+window.onresize = () => currentScreen.width = window.screen.width;
+export const isMobile = computed(() => {
+  return currentScreen.width <= 768 // || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent)
+});
 
 export const globalChatId = 'chat1661478319744';
 

@@ -24,15 +24,17 @@ import { isMobile } from "@/util";
 export default {
   name: "ChatView",
   components: { ChatComp },
-  computed: {
-    isMobile() { return isMobile(); }
+  data() {
+    return {
+      isMobile: isMobile
+    }
   },
   mounted() {
     if (Object.keys(store.currentUser).length === 0) router.push('/').then(() => {
       localStorage.clear()
       console.log('you need to login or register first!')
     })
-    else if (!isMobile()) router.push('/chats');
+    else if (!isMobile) router.push('/chats');
   },
 }
 </script>

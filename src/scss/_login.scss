@@ -25,6 +25,10 @@
       align-items: center;
       text-decoration: none;
       color: $color-white  !important;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 

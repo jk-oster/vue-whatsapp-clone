@@ -36,13 +36,11 @@ export default {
       const mins = '0' + new Date(time).getMinutes();
       return `${hours.substring(hours.length - 2)}:${mins.substring(mins.length - 2)}`;
     },
-    isMobile() {
-      return isMobile();
-    }
   },
   data() {
     return {
       active: false,
+      isMobile: isMobile
     }
   },
   methods: {
@@ -54,7 +52,7 @@ export default {
       // store.chats.filter(chat => store.currentChat.id === chat.id)[0].active = true;
       store.currentChat.active = true;
       store.currentUsers = this.chat.users;
-      if (isMobile()) {
+      if (isMobile) {
         router.push('/mobile');
       }
     },

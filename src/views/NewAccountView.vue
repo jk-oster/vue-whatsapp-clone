@@ -22,8 +22,13 @@ import { isMobile } from "@/util";
 export default {
   name: "NewAccountView",
   components: { CreateAccountBox, LoginLeftBox, PageComp },
+  data() {
+    return {
+      isMobile: isMobile
+    }
+  },
   computed: {
-    boxLayout() { return isMobile() ? 'noLeft' : 'left'; }
+    boxLayout() { return isMobile ? 'noLeft' : 'left'; }
   }
 }
 </script>

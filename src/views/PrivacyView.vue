@@ -1,5 +1,5 @@
 <template>
-    <PageComp :layout="'noCols'">
+    <PageComp layout="noCols" boxLayout="noLeft">
         <template #header>
             <span> Privacy</span>
         </template>

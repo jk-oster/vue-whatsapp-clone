@@ -21,8 +21,13 @@ import { isMobile } from "@/util";
 export default {
   name: "LoginView",
   components: { PageComp, LoginWithEmailBox, LoginLeftBox },
+  data() {
+    return {
+      isMobile: isMobile
+    }
+  },
   computed: {
-    boxLayout() { return isMobile() ? 'noLeft' : 'left'; }
+    boxLayout() { return isMobile ? 'noLeft' : 'left'; }
   },
 }
 </script>
