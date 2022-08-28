@@ -3,14 +3,17 @@
 
 
     <div id="headerImg" class="img-title-element">
+      <!-- Mobile back button -->
       <router-link v-if="isMobile" to="/chats" class="btn-back btn btn-icon-only" tabindex="1">
         <i class="bi bi-caret-left"></i><span> Back</span>
       </router-link>
+
       <div>
         <img class="chat_img" :src="store.currentChat.img" alt="">
       </div>
       <div class="ml-2 align-middle">
-        <p class="mb-0"><b>{{ store.currentChat.title }}</b></p>
+        <p class="mb-0"><b><i class="bi bi-info-circle me-1" @click="showChatInfo = true"></i>{{ store.currentChat.title }}</b>
+        </p>
         <small><span>{{ currentChatNames }}</span></small>
       </div>
     </div>
@@ -36,6 +39,17 @@
     </div>
   </div>
 
+  <Teleport to="body">
+    <!-- use the modal component, pass in the prop -->
+    <ModalComp :show="showChatInfo" @close="showChatInfo = false">
+      <template #header>
+        <h2>{{ store.currentChat.title }}</h2>
+      </template>
+      <template #body>
+        <ChatInfo />
+      </template>
+    </ModalComp>
+  </Teleport>
 
   <Teleport to="body">
     <!-- use the modal component, pass in the prop -->
@@ -54,12 +68,13 @@
 <script>
 import { store } from '../store.js'
 import ModalComp from "@/components/ModalComp";
+import ChatInfo from "@/components/ChatInfo";
 import AddUser from "@/components/AddUser";
 import { leaveChat } from '@/firebase';
-import { isMobile as checkMobile }  from "@/util";
+import { isMobile as checkMobile } from "@/util";
 export default {
   name: "ChatHeader",
-  components: { AddUser, ModalComp },
+  components: { AddUser, ModalComp, ChatInfo },
   computed: {
     currentChatNames() {
       return store.currentChat.users?.map(user => user.name).join(', ')
@@ -69,6 +84,7 @@ export default {
     return {
       store,
       showModal: false,
+      showChatInfo: false,
       search: '',
       isMobile: checkMobile
     }
