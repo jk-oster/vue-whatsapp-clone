@@ -47,14 +47,14 @@
       </div>
 
     </main>
-    <footer class="d-flex py-1 justify-content-around">
+    <footer class="d-flex justify-content-around">
       <slot name="footer">
-        <p>&copy; <a href="https://jkoster.com">Jakob Osterberger</a>
+        <p class="px-1">&copy; <a href="https://jkoster.com">Jakob Osterberger</a>
           2022 All rights reserved.</p>
-        <p v-if="isMobile">
+        <p v-if="isMobile" class="px-1">
           <router-link to="/about"><i class="bi bi-info-circle me-2"></i><span>About</span></router-link>
         </p>
-        <p v-if="isMobile">
+        <p v-if="isMobile" class="px-1">
           <router-link to="/privacy"><i class="bi bi-shield-shaded me-2"></i><span>Data & privacy</span></router-link>
         </p>
       </slot>
