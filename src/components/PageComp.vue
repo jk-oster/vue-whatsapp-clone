@@ -5,7 +5,7 @@
       <h1>
         <router-link to="/"><i class="bi bi-whatsapp me-2"></i>
           <slot name="header">
-            <span> WhatsApp Clone v0.1</span>
+            <span> WhatsApp Clone v0.1.1</span>
           </slot>
         </router-link>
       </h1>

@@ -64,7 +64,6 @@
   & .box-form {
     box-shadow: 0 17px 50px 0 rgba(11, 20, 26, .19), 0 12px 15px 0 rgba(11, 20, 26, .24);
     background-color: white;
-    border-radius: 8px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -72,6 +71,11 @@
     height: fit-content;
     max-width: 1180px;
     overflow: hidden;
+
+    @media (min-width: 768px) {
+      margin: 2em 2em 5em 2em;
+      border-radius: 8px;
+    }
 
     &-box {
       margin-top: auto;
