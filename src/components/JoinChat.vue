@@ -1,9 +1,8 @@
 /* eslint-disable */
 <template>
     <form class="form">
-        <div class="w-100">Join the global WhatsApp Clone Chat by the
-            chat id:
-            <code>{{ globalChatId }}</code>
+        <div>Join the global WhatsApp Clone Chat by the
+            chat id: <code>{{ globalChatId }}</code>
         </div>
         <div class="d-flex w-100">
             <label for="chatId" class="d-none">Chat ID</label>
@@ -39,7 +38,7 @@ export default {
         return {
             chatId: '',
             password: '',
-            gobalChatId: globalChatId,
+            globalChatId: globalChatId,
         }
     }
 }
