@@ -3,7 +3,7 @@
   <div class="login">
     <header class="d-flex py-3 justify-content-between align-items-baseline mx-5">
       <h1>
-        <router-link to="/"><i class="bi bi-whatsapp me-1"></i>
+        <router-link to="/"><i class="bi bi-whatsapp me-2"></i>
           <slot name="header">
             <span> WhatsApp Clone v0.1</span>
           </slot>
@@ -12,8 +12,8 @@
 
 
       <div v-if="!isMobile" class="d-flex flex-row">
-        <router-link to="/about" class="px-2">About this application</router-link>
-        <router-link to="/privacy"  class="px-2">Data protection and privacy</router-link>
+        <router-link to="/about" class="px-2"><i class="bi bi-info-circle me-2"></i><span>About</span></router-link>
+        <router-link to="/privacy"  class="px-2"><i class="bi bi-shield-shaded me-2"></i><span>Data & privacy</span></router-link>
       </div>
 
     </header>
@@ -52,10 +52,10 @@
         <p>&copy; <a href="https://jkoster.com">Jakob Osterberger</a>
           2022 All rights reserved.</p>
         <p v-if="isMobile">
-          <router-link to="/about">About this application</router-link>
+          <router-link to="/about"><i class="bi bi-info-circle me-2"></i><span>About</span></router-link>
         </p>
         <p v-if="isMobile">
-          <router-link to="/privacy">Data protection and privacy</router-link>
+          <router-link to="/privacy"><i class="bi bi-shield-shaded me-2"></i><span>Data & privacy</span></router-link>
         </p>
       </slot>
     </footer>

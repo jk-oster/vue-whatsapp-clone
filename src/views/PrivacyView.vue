@@ -1,7 +1,7 @@
 <template>
     <PageComp layout="noCols" boxLayout="noLeft">
         <template #header>
-            <span> Privacy</span>
+            <span> Data & privacy</span>
         </template>
         <template #main>
             <DataPrivacy />
