@@ -97,7 +97,7 @@
             nachfolgend die Kontaktdaten der verantwortlichen Person bzw. Stelle:<br>
             <span class="12106973" style="font-weight: 400">Jakob Osterberger</span>
         </p>
-        <p>Impressum: <a href="https://www.musterfirma.at/impressum/">https://www.musterfirma.at/impressum/</a></p>
+        <p>Kontakt: <a href="https://jkoster.com/contact/">https://jkoster.com/contact/</a></p>
         <h2 id="speicherdauer" class="12106973 " data-fontsize="24"
             style="--fontSize:24; line-height: 1.5; --minFontSize:24;" data-lineheight="36px">Speicherdauer</h2>
         <p>Dass wir personenbezogene Daten nur so lange speichern, wie es für die Bereitstellung unserer
@@ -1077,7 +1077,7 @@ Was das EU-Recht betrifft, beziehen wir uns auf die VERORDNUNG (EU) 2016/679 DES
 &lt;p&gt;Sollten Sie Fragen zum Datenschutz oder zur Verarbeitung personenbezogener Daten haben, finden Sie nachfolgend die Kontaktdaten der verantwortlichen Person bzw. Stelle:&lt;br /&gt;
 &lt;span class="12106973" style="font-weight: 400"&gt;Jakob Osterberger&lt;/span&gt;
 &lt;/p&gt;
-&lt;p&gt;Impressum: &lt;a href="https://www.musterfirma.at/impressum/"&gt;https://www.musterfirma.at/impressum/&lt;/a&gt;
+&lt;p&gt;Impressum: &lt;a href="https://jkoster.com/contact/"&gt;https://jkoster.com/contact/&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id="speicherdauer" class="12106973"&gt;Speicherdauer&lt;/h2&gt;
 &lt;p&gt;Dass wir personenbezogene Daten nur so lange speichern, wie es für die Bereitstellung unserer Dienstleistungen und Produkte unbedingt notwendig ist, gilt als generelles Kriterium bei uns. Das bedeutet, dass wir personenbezogene Daten löschen, sobald der Grund für die Datenverarbeitung nicht mehr vorhanden ist. In einigen Fällen sind wir gesetzlich dazu verpflichtet, bestimmte Daten auch nach Wegfall des ursprüngliches Zwecks zu speichern, zum Beispiel zu Zwecken der Buchführung.&lt;/p&gt;
