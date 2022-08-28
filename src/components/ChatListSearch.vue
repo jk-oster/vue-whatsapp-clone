@@ -1,6 +1,6 @@
 <template>
 
-  <div class="m-2 border rounded d-flex">
+  <div class="p-2 pt-0 d-flex bg-wa-banner">
     <span class="input-group-text">
       <i class="bi bi-search"></i>
     </span>

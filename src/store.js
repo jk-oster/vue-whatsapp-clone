@@ -1,6 +1,10 @@
 /* eslint-disable */
 
-import { reactive } from 'vue'
+import { 
+    reactive, 
+    // watchEffect 
+} from "vue";
+
 export const store = reactive({
     currentUser: {},
     knownUsers: [],
@@ -9,4 +13,22 @@ export const store = reactive({
     msgSearch: "",
     chatSearch: "",
     lastMessageId: "",
-})
+});
+
+// console.log(store);
+
+// const savedStore = JSON.parse(localStorage.getItem("store") ?? {});
+
+// console.log(savedStore.currentChat);
+
+// store.currentChat = savedStore.currentChat;
+// store.knownUsers = savedStore.knownUsers;
+// store.chats = ['sex','lol'];
+// store.lastMessageId = "halloooooooooooooo";
+// store.currentUser = savedStore.currentUser;
+
+// console.log(store);
+
+// watchEffect(() => {
+//   localStorage.setItem("store", JSON.stringify(store));
+// });

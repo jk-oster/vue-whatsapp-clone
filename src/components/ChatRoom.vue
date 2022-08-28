@@ -2,8 +2,11 @@
   <div ref="chatroom" class="chatroom" scollable="true">
 
     <div class="top-notification" v-if="showNoMessagesYet">Write the first message</div>
-    <div class="top-notification" v-if="showNoChatSelected">Select a chat, create one or join the global WhatsApp Clone Chat by the chat id:
-      <code>chat1661478319744</code></div>
+    <div class="top-notification" v-if="showNoChatSelected">Select a chat to display, create <i
+        class="bi bi-plus-circle"></i> one or join <i class="bi bi-envelope"></i> the global WhatsApp Clone Chat by the
+      chat id:
+      <code>chat1661478319744</code>
+    </div>
 
     <MessageItem v-for="message in filteredMessages" :key="message.id" :message="message" />
 
@@ -29,7 +32,7 @@ export default {
       }) ?? [];
     },
     showNoMessagesYet() {
-      return !this.showNoChatSelected && ( !this.filteredMessages || this.filteredMessages.length === 0);
+      return !this.showNoChatSelected && (!this.filteredMessages || this.filteredMessages.length === 0);
     },
     showNoChatSelected() {
       return !store.currentChat || Object.keys(store.currentChat).length === 0;

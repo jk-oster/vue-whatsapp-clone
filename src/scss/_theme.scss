@@ -11,6 +11,7 @@ $color-wa-bg-light: #aebac1;
 $color-wa-bg-active: #3b4a54;
 $color-wa-bg-dark: #1c2121;
 
+
 $color-banner: #eeeeee;
 $color-border: #68828d;
 
@@ -39,5 +40,15 @@ $theme-colors: (
   "danger":     $danger,
   "light":      $light,
   "dark":       $dark
-) !default;
-// scss-docs-end theme-colors-map
+  ) !default;
+  // scss-docs-end theme-colors-map
+
+  .bg-wa-black {
+    background-color: $color-wa-bg-black !important;
+  }
+  .bg-wa-banner {
+    background-color: $color-banner !important;
+  }
+  .bg-wa-green {
+    background-color: $color-wa-green !important;
+  }

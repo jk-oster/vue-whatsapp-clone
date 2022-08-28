@@ -4,8 +4,8 @@
       @click="switchActiveChat"
       @keyup.enter="switchActiveChat"
   >
-  <div  class="notification"><span>{{ chat.newMessage > 0 ? chat.newMessage : '' }}</span></div>
     <div class="img-title-element">
+      <div  class="notification"><span>{{ chat.newMessage > 0 ? chat.newMessage : '' }}</span></div>
       <div>
         <img class="chat_img" v-bind:src="chat.img" alt="">
       </div>

@@ -1,7 +1,7 @@
 /* eslint-disable */
 "use strict";
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, setPersistence, inMemoryPersistence } from "firebase/auth";
 import {
   addDoc,
   doc,
@@ -26,6 +26,8 @@ const firebaseApp = initializeApp(firebaseConfig);
 // Use these for db & auth
 export const db = getFirestore(firebaseApp);
 export const auth = getAuth();
+
+setPersistence(auth, inMemoryPersistence);
 
 //----------------------------------------------------------------
 
@@ -145,8 +147,8 @@ export async function initCurrentUser(username) {
   await setData(userData, "users", auth.currentUser.uid);
 }
 
-export async function initMessages(chatId) {
-  const currentChatId = chatId;
+export async function initMessages(chat) {
+  const currentChatId = chat.id;
   const userChatsQuery = createQuery(
     `chats/${currentChatId}/messages`,
     orderBy("time", "asc")
@@ -176,12 +178,11 @@ export async function initMessages(chatId) {
       editedChat.newMessage++;
       // addChat(editedChat);
       if (store.lastMessageId !== lastMessage.id) {
-        new Notification({
-            title: "New Message",
+        new Notification(chat.title, {
+            title: chat.title,
             body: lastMessage.text,
             icon: 'https://picsum.photos/200',
-            image: 'https://picsum.photos/200',
-            
+            // image: 'https://picsum.photos/200',
         });
         store.lastMessageId = lastMessage.id;
       }
@@ -206,7 +207,7 @@ export async function initUserChats() {
     });
 
     for (const chat of chats) {
-      initMessages(chat.id);
+      initMessages(chat);
       const users = [];
       for (const userId of chat.users) {
         const user = await getDocData("users", userId);
