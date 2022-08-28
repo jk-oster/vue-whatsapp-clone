@@ -17,7 +17,7 @@
   <meta property="og:title" content="WhatsApp chat clone - created by Jakob Osterberger">
   <meta property="og:description"
     content="This is a simple chat application to connect and write messages with your friends.">
-  <meta property="og:image" content="">
+  <meta property="og:image" content="<%= BASE_URL %>social-card-image.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -25,12 +25,13 @@
   <meta property="twitter:title" content="WhatsApp chat clone - created by Jakob Osterberger">
   <meta property="twitter:description"
     content="This is a simple chat application to connect and write messages with your friends.">
-  <meta property="twitter:image" content="">
+  <meta property="twitter:image" content="<%= BASE_URL %>social-card-image.jpg">
 
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-  <title>
+  <!-- Webpack Injectition -->
+  <!--title>
     <%= htmlWebpackPlugin.options.title %>
-  </title>
+  </title-->
 </head>
 
 <body>
