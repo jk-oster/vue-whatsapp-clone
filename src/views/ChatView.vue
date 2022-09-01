@@ -23,6 +23,7 @@
 
 <script>
 import { store } from "@/store";
+import { joinChat } from "@/firebase";
 import router from "@/router";
 import ChatList from "../components/ChatList.vue";
 import ChatComp from "../components/ChatComp.vue";
@@ -40,6 +41,15 @@ export default {
     classes() {
       return !this.isMobile ? 'col-4 border-right p-0 chatlist d-flex flex-column' : 'col-12 p-0 chatlist d-flex  flex-column'
     },
+  },
+  watch: {
+    $route() {
+      console.log(this.$route)
+      if (this.$route.query.join != null) {
+        joinChat(this.$route.query.join);
+        this.$router.push('/chats');
+      }
+    }
   },
   mounted() {
     if (Object.keys(store.currentUser).length === 0) router.push('/').then(() => {
