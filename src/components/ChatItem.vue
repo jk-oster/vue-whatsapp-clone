@@ -3,7 +3,8 @@
     :class="{ 'active': chat.active, 'new-message': chat.newMessage }" @click="switchActiveChat"
     @keyup.enter="switchActiveChat">
     <div class="img-title-element">
-      <div class="notification"><span>{{ chat.newMessage > 0 ? chat.newMessage : '' }}</span></div>
+      <span class="badge badge-primary badge-pill">{{ chat.newMessage > 0 ? chat.newMessage : '' }}</span>
+      <!-- <div class="notification"><span>{{ chat.newMessage > 0 ? chat.newMessage : '' }}</span></div> -->
       <div>
         <img class="chat_img" v-bind:src="chat.img" alt="">
       </div>

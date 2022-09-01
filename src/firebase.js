@@ -88,7 +88,7 @@ export function getCurrentUser() {
 }
 
 export async function getUserData(userId) {
-  return getDataFromQuery("users/" + userId);
+  return getDocData("users", userId);
 }
 
 export async function getChatData(chatId) {
@@ -123,7 +123,7 @@ export async function addMessage(message, chatId) {
 }
 
 export async function addChat(chat) {
-  store.currentChat = chat;
+  // store.currentChat = chat;
   return setData(chat, `chats`, chat.id);
 }
 
@@ -211,6 +211,28 @@ export async function initUserChats() {
       chat.users = users;
     }
     store.chats = chats;
-    if(store.currentChat?.id) store.currentChat = store.chats.filter(chat => chat.id === store.currentChat.id)
+    if(store.currentChat?.id) store.currentChat = store.chats.find(chat => chat.id === store.currentChat.id)
   });
 }
+
+export async function joinChat(chatId) {
+  const chat = await getChatData(chatId);
+  if (chat) {
+      const users = [...new Set([
+          ...chat.users.map(user => user.id),
+          store.currentUser.id
+      ])];
+      const newChat = {
+          id: chat.id,
+          title: chat.title,
+          users: users,
+          img: chat.img,
+          created: chat.created
+      }
+      addChat(newChat);
+      chat.users = users;
+      store.chats = [...store.chats, chat];
+      store.currentChat = chat;
+  }
+}
+

@@ -1,8 +1,7 @@
 /* eslint-disable */
 <template>
     <form class="form">
-        <div>Join the global WhatsApp Clone Chat by the
-            chat id: <code>{{ globalChatId }}</code>
+        <div><router-link :to="'/chats?join='+ globalChatId">Enter the global WhatsApp Clone Chat</router-link> or join a private chat room by its <code>chat id</code>.
         </div>
         <div class="d-flex w-100">
             <label for="chatId" class="d-none">Chat ID</label>
@@ -13,25 +12,21 @@
                 class="form-control form-control w-100 text-input my-2" /-->
         </div>
 
-        <button class="btn btn-primary" @click.prevent="joinChat"><i class="bi bi-plus"></i> Join</button>
+        <button class="btn btn-primary" @click.prevent="joinAChat"><i class="bi bi-plus"></i> Join</button>
     </form>
 </template>
 
 <script>
-import { store } from "@/store";
-import { addChat, getChatData } from "@/firebase";
+import { joinChat } from "@/firebase";
 import { globalChatId } from "@/util";
 
 export default {
     name: "JoinChat",
+    
     methods: {
-        async joinChat() {
-            const chat = await getChatData(this.chatId);
-            if (chat) {
-                chat.users = [...chat.users.filter(user => user.id !== store.currentUser.id), store.currentUser.id];
-                addChat(chat);
-                this.$emit('close');
-            }
+        async joinAChat() {
+            joinChat(this.chatId);
+            this.$emit('close');
         },
     },
     data() {

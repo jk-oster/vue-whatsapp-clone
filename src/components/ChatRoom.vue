@@ -1,9 +1,9 @@
 <template>
   <div ref="chatroom" class="chatroom" scollable="true">
 
-    <div class="top-notification" v-if="showNoMessagesYet">Write the first message</div>
+    <div class="top-notification" v-if="showNoMessagesYet"><i class="bi bi-send"></i> Send the first message</div>
     <div class="top-notification" v-if="showNoChatSelected">Select a chat to display, create <i
-        class="bi bi-plus-circle"></i> one or join <i class="bi bi-envelope"></i> the global WhatsApp Clone Chat by the
+        class="bi bi-plus-circle"></i> one or <router-link to="/chats?join=chat1661478319744">join <i class="bi bi-envelope"></i> the global WhatsApp Clone Chat</router-link> by the
       chat id:
       <code>{{ globalChatId }}</code>
     </div>

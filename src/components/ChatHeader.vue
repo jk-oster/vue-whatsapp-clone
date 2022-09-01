@@ -12,13 +12,14 @@
         <img class="chat_img" :src="store.currentChat.img" alt="">
       </div>
       <div class="ml-2 align-middle">
-        <p class="mb-0"><b><i class="bi bi-info-circle me-1" @click="showChatInfo = true"></i>{{ store.currentChat.title }}</b>
+        <p class="mb-0"><b><i class="bi bi-info-circle me-1" @click="showChatInfo = true"></i>{{ store.currentChat.title
+        }}</b>
         </p>
         <small><span>{{ currentChatNames }}</span></small>
       </div>
     </div>
 
-    <div class="icon-list">
+    <div v-if="chatSelected" class="icon-list">
       <div class="m-2 rounded d-flex">
         <span class="input-group-text">
           <i class="bi bi-search"></i>
@@ -26,13 +27,10 @@
         <input class="form-control form-control-sm w-100 border-0" type="text" placeholder="Search for message..."
           v-model="search" @input="store.msgSearch = search">
       </div>
-      <button class="my-auto mx-2 btn btn-secondary" id="show-modal" @click="showModal = true">
-        <i class="bi bi-person-plus"></i><span> Add user</span>
+      <button class="my-auto mx-2 btn btn-icon-only" id="show-modal" @click="showChatInfo = true">
+        <i class="bi bi-three-dots-vertical"></i><span> More</span>
       </button>
 
-      <button class="my-auto mx-2 btn btn-danger" @click="leaveChat">
-        <i class="bi bi-door-open"></i><span> Leave chat</span>
-      </button>
 
       <!--img src="../assets/more-vertical-svgrepo-com.svg" alt="" class="icon mx-2"/-->
 
@@ -47,6 +45,15 @@
       </template>
       <template #body>
         <ChatInfo />
+      </template>
+      <template v-if="store.currentChat.id" #footer>
+        <button class="my-auto mx-2 btn btn-primary" id="show-modal" @click="showModal = true">
+          <i class="bi bi-person-plus"></i>Add user
+        </button>
+
+        <button class="my-auto mx-2 btn btn-secondary" @click="leaveChat">
+          <i class="bi bi-door-open"></i> Leave chat
+        </button>
       </template>
     </ModalComp>
   </Teleport>
@@ -79,6 +86,9 @@ export default {
     currentChatNames() {
       return store.currentChat.users?.map(user => user.name).join(', ')
     },
+    chatSelected() {
+      return Object.keys(store.currentChat).length > 0
+    }
   },
   data() {
     return {

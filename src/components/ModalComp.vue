@@ -1,4 +1,4 @@
-<template>
+<template @close="$emit('close')">
   <Transition name="modal">
     <div v-if="show" class="modal-mask">
       <div class="modal-wrapper" @click.self="$emit('close')">
@@ -12,12 +12,13 @@
           </div>
 
           <div class="modal-footer">
-            <slot name="footer">
-              <button
+            <slot name="footer" >
+            
+            </slot>
+            <button
                   class="btn btn-danger"
                   @click="$emit('close')"
               ><i class="bi bi-x-lg"></i> Close</button>
-            </slot>
           </div>
         </div>
       </div>
@@ -57,7 +58,7 @@ export default {
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
 }

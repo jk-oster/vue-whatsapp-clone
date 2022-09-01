@@ -2,7 +2,7 @@
   <router-view/>
 </template>
 
-<style>
+<!-- <style>
 
 #app {
   -webkit-font-smoothing: antialiased;
@@ -22,4 +22,4 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-</style>
+</style> -->
