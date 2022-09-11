@@ -4,8 +4,8 @@
   <PageComp :boxLayout="boxLayout">
 
     <template #rightbox>
-      <LoginWithEmailBox />
-      <LoginLeftBox />
+      <LoginWithEmailBox :route="route" />
+      <LoginLeftBox :route="route" />
     </template>
 
   </PageComp>
@@ -23,7 +23,8 @@ export default {
   components: { PageComp, LoginWithEmailBox, LoginLeftBox },
   data() {
     return {
-      isMobile: checkMobile
+      isMobile: checkMobile,
+      route: "/chats"
     }
   },
   computed: {

@@ -33,6 +33,10 @@ import { initCurrentUser, initUserChats } from "@/firebase";
 
 export default {
   name: "LoginWithEmailBox",
+  
+  props: {
+    route: String
+  },
   data() {
     return {
       email: "",
@@ -78,7 +82,7 @@ export default {
           initCurrentUser();
           initUserChats();
           console.log("User signed in successfully");
-          router.push('/chats').then(() => {
+          router.push(this.route).then(() => {
             console.log('Welcome')
           })
         })

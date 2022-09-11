@@ -10,6 +10,9 @@ import router from "@/router";
 import {initCurrentUser, initUserChats} from "@/firebase";
 export default {
   name: "LoginLeftBox",
+  props: {
+    route: String
+  },
   methods: {
     googleLogin() {
       const auth = getAuth()
@@ -19,7 +22,7 @@ export default {
             initCurrentUser();
             initUserChats()
             console.log("User signed in successfully");
-            router.push('/chats').then(() => {
+            router.push(this.route).then(() => {
               console.log('Welcome')
             })
           })
