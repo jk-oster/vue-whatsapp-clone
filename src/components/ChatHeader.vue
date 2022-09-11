@@ -102,7 +102,8 @@ export default {
   methods: {
     leaveChat() {
       const chat = store.currentChat;
-      chat.users = chat.users.filter(id => store.currentUser.id !== id);
+      chat.users = chat.users.filter(user => store.currentUser.id !== user.id).map(user => user.id);
+      store.chats = store.chats.filter(storeChat => storeChat.id !== chat.id)
       leaveChat(chat);
       store.currentChat = {};
     },

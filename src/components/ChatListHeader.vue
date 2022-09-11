@@ -5,11 +5,18 @@
         <i class="bi bi-box-arrow-left"></i><span> Logout</span>
       </button>
 
-      <button class="my-auto btn btn-secondary" @click.prevent="showModal2 = true">
+      <button
+        class="my-auto btn btn-secondary"
+        @click.prevent="showModal2 = true"
+      >
         <i class="bi bi-envelope"></i><span> Join chat</span>
       </button>
 
-      <button class="my-auto btn btn-primary" id="show-modal" @click.prevent="showModal = true">
+      <button
+        class="my-auto btn btn-primary"
+        id="show-modal"
+        @click.prevent="showModal = true"
+      >
         <i class="bi bi-plus-circle"></i><span> New chat</span>
       </button>
       <!--button class="my-auto mx-2 btn-icon">
@@ -39,13 +46,13 @@
           </template>
         </ModalComp>
       </Teleport>
-
     </div>
   </div>
 </template>
 
 <script>
 import { auth } from "@/firebase";
+import { clearStore } from "@/store";
 import CreateChat from "@/components/CreateChat";
 import ModalComp from "@/components/ModalComp";
 import JoinChat from "./JoinChat.vue";
@@ -57,14 +64,19 @@ export default {
     return {
       showModal: false,
       showModal2: false,
-    }
+    };
   },
   methods: {
     signOut() {
       auth.signOut();
-    }
-  }
-}
+      localStorage.clear();
+      clearStore();
+      this.$router.push("/").then(() => {
+        console.log("you have been logged out");
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -81,6 +93,6 @@ export default {
 .icon {
   width: 20px;
   height: 20px;
-  opacity: .6;
+  opacity: 0.6;
 }
 </style>

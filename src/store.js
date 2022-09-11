@@ -1,19 +1,31 @@
 /* eslint-disable */
 
-import { 
-    reactive, 
-    // watchEffect 
+import {
+  reactive,
+  // watchEffect
 } from "vue";
 
 export const store = reactive({
-    currentUser: {},
-    knownUsers: [],
-    chats: [],
-    currentChat: {},
-    msgSearch: "",
-    chatSearch: "",
-    lastMessageId: "",
+  currentUser: {},
+  knownUsers: [],
+  chats: [],
+  currentChat: {},
+  msgSearch: "",
+  chatSearch: "",
+  lastMessageId: "",
+  loadedChats: false,
 });
+
+export const clearStore = () => {
+  store.currentUser = {};
+  store.knownUsers = {};
+  store.chats = [];
+  store.currentChat = {};
+  store.msgSearch = "";
+  store.chatSearch = "";
+  store.lastMessageId = "";
+  store.loadedChats = false;
+};
 
 // console.log(store);
 
