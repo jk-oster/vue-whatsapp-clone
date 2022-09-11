@@ -27,7 +27,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 export const db = getFirestore(firebaseApp);
 export const auth = getAuth();
 
-setPersistence(auth, inMemoryPersistence);
+// setPersistence(auth, inMemoryPersistence);
 
 //----------------------------------------------------------------
 
@@ -212,16 +212,20 @@ export async function initUserChats() {
     }
     store.chats = chats;
     if(store.currentChat?.id) store.currentChat = store.chats.find(chat => chat.id === store.currentChat.id)
+    store.loadedChats = true;
   });
 }
 
 export async function joinChat(chatId) {
   const chat = await getChatData(chatId);
+  console.log("got chat", chat);
+  console.log("current user", store.currentUser);
   if (chat) {
       const users = [...new Set([
-          ...chat.users.map(user => user.id),
+          ...chat.users,
           store.currentUser.id
       ])];
+      console.log(users);
       const newChat = {
           id: chat.id,
           title: chat.title,
@@ -231,6 +235,7 @@ export async function joinChat(chatId) {
       }
       addChat(newChat);
       chat.users = users;
+      console.log("added user", chat);
       store.chats = [...store.chats, chat];
       store.currentChat = chat;
   }
