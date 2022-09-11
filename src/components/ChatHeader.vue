@@ -106,6 +106,7 @@ export default {
       store.chats = store.chats.filter(storeChat => storeChat.id !== chat.id)
       leaveChat(chat);
       store.currentChat = {};
+      this.$emit('close');
     },
   }
 }
