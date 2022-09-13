@@ -17,17 +17,32 @@ import {
 } from "firebase/firestore";
 import { store } from "@/store";
 import { config } from "@/firebaseConfig";
+import router from "./router"
 
 const firebaseConfig = config;
 
-// Use this to initialize the firebase App
-const firebaseApp = initializeApp(firebaseConfig);
+// import Klaro with CSS
 
+// Initialize the firebase App
+const firebaseApp = initializeApp(firebaseConfig);
 // Use these for db & auth
 export const db = getFirestore(firebaseApp);
 export const auth = getAuth();
-
 setPersistence(auth, inMemoryPersistence);
+
+auth.onAuthStateChanged(async () => {
+  if (!auth.currentUser) {
+      router.push('/').then(() => {
+          localStorage.clear()
+          store.currentUser = {}
+          store.knownUsers = {}
+          store.chats = []
+          store.currentChat= {}
+          console.log('you have been logged out')
+      })
+  }
+})
+
 
 //----------------------------------------------------------------
 
@@ -132,14 +147,19 @@ export async function leaveChat(chat) {
 }
 
 export async function initCurrentUser(username) {
-  const userData = {
-    id: auth.currentUser.uid,
-    img: auth.currentUser.photoURL ?? "https://picsum.photos/200",
-    name: username ?? auth.currentUser.displayName ?? auth.currentUser.email,
-    email: auth.currentUser.email,
-  };
-  store.currentUser = userData;
-  await setData(userData, "users", auth.currentUser.uid);
+  getUserData(auth.currentUser.uid)
+    .then((user) => (store.currentUser = user))
+    .catch(async () => {
+      const userData = {
+        id: auth.currentUser.uid,
+        img: auth.currentUser.photoURL ?? "https://picsum.photos/200",
+        name:
+          username ?? auth.currentUser.displayName ?? auth.currentUser.email,
+        email: auth.currentUser.email,
+      };
+      store.currentUser = userData;
+      await setData(userData, "users", auth.currentUser.uid);
+    });
 }
 
 export async function initMessages(chat) {
@@ -156,7 +176,8 @@ export async function initMessages(chat) {
       messages.push(msg);
     });
 
-    if(store.currentChat.id === currentChatId) store.currentChat.messages = messages;
+    if (store.currentChat.id === currentChatId)
+      store.currentChat.messages = messages;
 
     const lastMessage = messages[messages.length - 1];
     if (
@@ -173,10 +194,10 @@ export async function initMessages(chat) {
       // addChat(editedChat);
       if (store.lastMessageId !== lastMessage.id) {
         new Notification(chat.title, {
-            title: chat.title,
-            body: lastMessage.text,
-            icon: 'https://picsum.photos/200',
-            // image: 'https://picsum.photos/200',
+          title: chat.title,
+          body: lastMessage.text,
+          icon: "https://picsum.photos/200",
+          // image: 'https://picsum.photos/200',
         });
         store.lastMessageId = lastMessage.id;
       }
@@ -211,28 +232,29 @@ export async function initUserChats() {
       chat.users = users;
     }
     store.chats = chats;
-    if(store.currentChat?.id) store.currentChat = store.chats.find(chat => chat.id === store.currentChat.id)
+    if (store.currentChat?.id)
+      store.currentChat = store.chats.find(
+        (chat) => chat.id === store.currentChat.id
+      );
   });
 }
 
 export async function joinChat(chatId) {
   const chat = await getChatData(chatId);
   if (chat) {
-      const users = [...new Set([
-          ...chat.users.map(user => user.id),
-          store.currentUser.id
-      ])];
-      const newChat = {
-          id: chat.id,
-          title: chat.title,
-          users: users,
-          img: chat.img,
-          created: chat.created
-      }
-      addChat(newChat);
-      chat.users = users;
-      store.chats = [...store.chats, chat];
-      store.currentChat = chat;
+    const users = [
+      ...new Set([...chat.users.map((user) => user.id), store.currentUser.id]),
+    ];
+    const newChat = {
+      id: chat.id,
+      title: chat.title,
+      users: users,
+      img: chat.img,
+      created: chat.created,
+    };
+    addChat(newChat);
+    chat.users = users;
+    store.chats = [...store.chats, chat];
+    store.currentChat = chat;
   }
 }
-

@@ -57,6 +57,7 @@
         <p v-if="isMobile" class="px-1">
           <router-link to="/privacy"><i class="bi bi-shield-shaded me-2"></i><span>Data & privacy</span></router-link>
         </p>
+        <p class="px-1" @click="window.klaro.show(undefined, true);"><i class="bi bi-gear me-2"></i><span>Cookie consent</span></p>
       </slot>
     </footer>
   </div>
