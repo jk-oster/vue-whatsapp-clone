@@ -29,11 +29,14 @@ export default {
   },
   computed: {
     filteredMessages() {
+      console.log('updated chat room')
+
       return store.currentChat.messages?.filter(msg => {
         return msg.text.toLowerCase().includes(store.msgSearch?.toLowerCase() ?? '');
       }) ?? [];
     },
     showNoMessagesYet() {
+      console.log('no messages yet?', this.filteredMessages, this.showNoChatSelected);
       return !this.showNoChatSelected && (!this.filteredMessages || this.filteredMessages.length === 0);
     },
     showNoChatSelected() {

@@ -28,10 +28,10 @@ export default {
   props: ['chat'],
   computed: {
     lastMessage() {
-      return this.chat.messages[this.chat.messages.length - 1]?.text ?? 'Neuer Chat - noch keine Nachrichten'
+      return this.chatMessagesLength() ? this.chat.messages[this.chatMessagesLength() - 1].text : 'Neuer Chat - noch keine Nachrichten'
     },
     lastTime() {
-      const time = this.chat.messages[this.chat.messages.length - 1]?.time ?? '';
+      const time = this.chatMessagesLength() ? this.chat.messages[this.chatMessagesLength() - 1].time : '';
       if (time == '') return '**:**';
       const hours = '0' + new Date(time).getHours();
       const mins = '0' + new Date(time).getMinutes();
@@ -56,6 +56,11 @@ export default {
       if (this.isMobile) {
         router.push('/mobile');
       }
+    },
+    chatMessagesLength(){
+      console.log('chatmessages', this.chat.messages)
+      if(this.chat && this.chat.messages && this.chat.messages.length > 0) return this.chat.messages.length;
+      return false;
     },
   }
 }

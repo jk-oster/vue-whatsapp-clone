@@ -51,7 +51,7 @@ export default {
   methods: {
     joinChatByQueryParam() {
       console.log('check joining', this.$route)
-      if (this.$route.query.join != null && store.loadedChats) {
+      if (this.$route.query.join != null && store.loadedChats && !store.chats.some(chat => chat.id == this.$route.query.join)) {
         console.log('joining', this.$route)
         setTimeout(() => {
           joinChat(this.$route.query.join);
