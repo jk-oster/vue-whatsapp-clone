@@ -1,5 +1,20 @@
 # vue-whatsapp-clone
 
+## Project Roadmap
+✅ Login with Email
+✅ Login with Google
+✅ Send real time messages
+✅ Create, join and leave chats
+✅ Add other users to chat
+✅ Join chat by URL-Link
+- Set profile picture
+- Edit profile information
+- Set chat picture
+- Edit chat information
+- Send images
+- Send files
+- Send voice notes
+
 ## Project setup
 ```
 npm install
