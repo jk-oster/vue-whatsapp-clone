@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
     <form class="form">
-        <div>{{ store.currentChat.id ? '' : 'Global WhatsApp ' }}Chat id: <code><a :href="joinLink">{{ store.currentChat.id ? store.currentChat.id : globalChatId }} </a></code>
+        <div>{{ store.currentChat.id ? '' : 'Global Vue ' }}Chat id: <code><a :href="joinLink">{{ store.currentChat.id ? store.currentChat.id : globalChatId }} </a></code>
             <button class="ms-2 btn btn-secondary btn-sm btn-light" @click.prevent="copyToClipBoard">
                 <i v-if="!copied" class="bi bi-clipboard me-2"></i>
                 <i v-else class="bi bi-clipboard-check me-2"></i>

@@ -1,10 +1,10 @@
 const { defineConfig } = require("@vue/cli-service");
 
 const pwaConfig = {
-  name: "WhatsApp Clone by Jakob Osterberger",
-  short_name: "WhatsApp Clone",
+  name: "Vue Chat App | Jakob Osterberger",
+  short_name: "Vue Chat",
   description:
-    "This App is a WhatsApp clone built with VueJs and Firebase by © Jakob Osterberger 2022.",
+    "This App is a Messaging Service designed after WhatsApp and built with VueJs and Firebase by © Jakob Osterberger 2022.",
   themeColor: "#00A783",
   msTileColor: "#000000",
   appleMobileWebAppCapable: "yes",

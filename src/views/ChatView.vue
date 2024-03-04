@@ -84,7 +84,7 @@ export default {
           // If the user accepts, let's create a notification
           if (permission === "granted") {
             if (Object.keys(store.chats).length === 0)
-              new Notification("Hi there! Welcome to this WhatsApp Clone app!");
+              new Notification("Hi there! Welcome to this Vue Chat App, its a WhatsApp Design Clone!");
             else new Notification("Hi there! Welcome back!");
           }
         });

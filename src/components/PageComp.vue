@@ -5,7 +5,7 @@
       <h1>
         <router-link to="/"><i class="bi bi-whatsapp me-2"></i>
           <slot name="header">
-            <span> WhatsApp Clone</span>
+            <span> Vue Chat App | a Whatsapp Design Clone</span>
           </slot>
         </router-link>
       </h1>

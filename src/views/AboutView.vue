@@ -5,7 +5,7 @@
     </template>
     <template #rightbox>
       <h2>This App...</h2>
-      <p><b>...is a WhatsApp clone hosted and deployed by Vercel, built with VueJs and Firebase by &copy; <a
+      <p><b>...is a WhatsApp Design clone hosted and deployed by Vercel, built with VueJs and Firebase by &copy; <a
             href="https://jkoster.com">Jakob
             Osterberger</a>
           2022.</b></p>

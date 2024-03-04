@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <!-- Primary Meta Tags -->
-  <title>WhatsApp chat clone - created by Jakob Osterberger</title>
-  <meta name="title" content="WhatsApp chat clone - created by Jakob Osterberger">
+  <title>Vue Chat App | by Jakob Osterberger</title>
+  <meta name="title" content="Vue Chat App | by Jakob Osterberger">
   <meta name="description" content="This is a simple chat application to connect and write messages with your friends.">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vue-whatsapp-clone-jk-oster.vercel.app/">
-  <meta property="og:title" content="WhatsApp chat clone - created by Jakob Osterberger">
+  <meta property="og:title" content="Vue Chat App | by Jakob Osterberger">
   <meta property="og:description"
     content="This is a simple chat application to connect and write messages with your friends.">
   <meta property="og:image" content="<%= BASE_URL %>social-card-image.jpg">
@@ -22,10 +22,26 @@
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://vue-whatsapp-clone-jk-oster.vercel.app/">
-  <meta property="twitter:title" content="WhatsApp chat clone - created by Jakob Osterberger">
+  <meta property="twitter:title" content="Vue Chat App | by Jakob Osterberger">
   <meta property="twitter:description"
     content="This is a simple chat application to connect and write messages with your friends.">
   <meta property="twitter:image" content="<%= BASE_URL %>social-card-image.jpg">
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.caprover.jkoster.com/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '3']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
 
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
   <!-- Webpack Injectition -->
